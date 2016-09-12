@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.ProjectMapper">
+
+  <resultMap id="projRM1" type="Project">
+    <result property="name" column="name"/>
+    <collection
+      property="specialities"
+      column="project_id"
+      javaType="List"
+      ofType="String"
+      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByProjectId"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <resultMap id="projRM2" type="Project">
+    <result property="name" column="name"/>
+    <association
+      property="company"
+      column="company_id"
+      javaType="Company"
+      select="com.roxoft.hierarchy.mybatis.mappers.CompanyMapper.getPureCompanyById"
+      fetchType="eager"
+    />
+    <collection
+      property="specialities"
+      column="project_id"
+      javaType="List"
+      ofType="String"
+      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByProjectId"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <select id="getAllData" resultType="Project" resultMap="projRM1">
+    SELECT project_id, name FROM projects
+  </select>
+
+  <select id="getProjectByCompanyId" parameterType="java.lang.Integer" resultType="Project" resultMap="projRM1">
+    SELECT project_id, name FROM projects WHERE company_id = #{company_id}
+  </select>
+
+  <select id="getAllDataWithCompaniesNames" parameterType="java.lang.Integer" resultType="Project" resultMap="projRM2">
+    SELECT project_id, name, company_id FROM projects
+  </select>
+
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+  <properties resource="db.properties"/>
+
+  <typeAliases>
+
+    <typeAlias alias="Address" type="com.roxoft.hierarchy.models.address.Address" />
+  	<typeAlias alias="Pupil" type="com.roxoft.hierarchy.models.human.Pupil" />
+    <typeAlias alias="Teacher" type="com.roxoft.hierarchy.models.human.Teacher" />
+    <typeAlias alias="School" type="com.roxoft.hierarchy.models.institutions.School" />
+    <typeAlias alias="Lecturer" type="com.roxoft.hierarchy.models.human.Lecturer" />
+    <typeAlias alias="Student" type="com.roxoft.hierarchy.models.human.Student" />
+    <typeAlias alias="University" type="com.roxoft.hierarchy.models.institutions.University" />
+    <typeAlias alias="Project" type="com.roxoft.hierarchy.models.projects.Project" />
+    <typeAlias alias="Company" type="com.roxoft.hierarchy.models.institutions.Company" />
+
+  </typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${MYSQL_DB_DRIVER_CLASS}"/>
+        <property name="url" value="${MYSQL_DB_URL_FOR_SYSTEMS_SCHEMA}"/>
+        <property name="username" value="${MYSQL_DB_USERNAME}"/>
+        <property name="password" value="${MYSQL_DB_PASSWORD}"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+  <mappers>
+
+    <mapper resource="mappers/mySQL/Speciality_Mapper.xml" />
+    <mapper resource="mappers/mySQL/Address_Mapper.xml" />
+    <mapper resource="mappers/mySQL/Pupil_Mapper.xml" />
+    <mapper resource="mappers/mySQL/Teacher_Mapper.xml" />
+    <mapper resource="mappers/mySQL/School_Mapper.xml" />
+    <mapper resource="mappers/mySQL/Lecturer_Mapper.xml" />
+    <mapper resource="mappers/mySQL/Student_Mapper.xml" />
+    <mapper resource="mappers/mySQL/University_Mapper.xml" />
+    <mapper resource="mappers/mySQL/Project_Mapper.xml" />
+    <mapper resource="mappers/mySQL/Company_Mapper.xml" />
+
+  </mappers>
+
+</configuration>

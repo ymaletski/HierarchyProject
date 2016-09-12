@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper">
+
+  <resultMap id="spRM1" type="String">
+    <result property="name" column="name"/>
+  </resultMap>
+
+  <select id="getSpecialityById" parameterType="java.lang.Integer" resultType="String" resultMap="spRM1">
+    SELECT name FROM specialities where speciality_id = #{speciality_id}
+  </select>
+
+  <select id="getSpecialitiesByUniversityId" parameterType="java.lang.Integer" resultType="String" resultMap="spRM1">
+    SELECT specialities.name FROM specialities INNER JOIN universities_has_specialities
+    ON universities_has_specialities.speciality_id = specialities.speciality_id
+    WHERE universities_has_specialities.university_id = #{university_id};
+  </select>
+
+  <select id="getSpecialitiesByProjectId" parameterType="java.lang.Integer" resultType="String" resultMap="spRM1">
+    SELECT specialities.name FROM specialities INNER JOIN projects_has_specialities
+    ON projects_has_specialities.speciality_id = specialities.speciality_id
+    WHERE projects_has_specialities.project_id = #{project_id};
+  </select>
+
+<!--
+  <select id="getAllData" resultType="String" resultMap="spRM1">
+    SELECT name FROM specialities
+  </select>
+-->
+
+</mapper>

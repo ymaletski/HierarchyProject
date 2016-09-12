@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.LecturerMapper">
+
+  <resultMap id="lectRM1" type="Lecturer">
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+  </resultMap>
+
+  <resultMap id="lectRM2" type="Lecturer">
+    <result property="name" column="name"/>
+    <result property="surname" column="surname"/>
+    <association
+      property="university"
+      column="university_id"
+      javaType="University"
+      select="com.roxoft.hierarchy.mybatis.mappers.UniversityMapper.getPureUniversityById"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <select id="getLecturersByUniversityId" parameterType="java.lang.Integer" resultType="Lecturer" resultMap="lectRM1">
+    SELECT name, surname FROM lecturers WHERE university_id = #{university_id}
+  </select>
+
+  <select id="getAllDataWithUniversitiesNames" parameterType="java.lang.Integer" resultType="Lecturer" resultMap="lectRM2">
+    SELECT name, surname, university_id FROM lecturers
+  </select>
+
+<!--
+  <select id="getAllData" resultType="Lecturer" resultMap="lectRM1">
+    SELECT name, surname FROM lecturers
+  </select>
+-->
+
+</mapper>

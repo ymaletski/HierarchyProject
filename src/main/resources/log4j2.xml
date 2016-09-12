@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+
+    <File name="SchoolSystemFile" fileName="logs/SchoolSystem.log">
+			  <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+		</File>
+
+    <File name="UniversitySystemFile" fileName="logs/UniversitySystem.log">
+			  <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+		</File>
+
+    <File name="CompanySystemFile" fileName="logs/CompanySystem.log">
+			  <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+		</File>
+
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+
+  </Appenders>
+  <Loggers>
+
+    <Root level="all">
+      <AppenderRef ref="Console"/>
+    </Root>
+
+    <Logger name="com.roxoft.hierarchy.io.printers.SchoolSystemPrinter" level="info" additivity="false">
+        <AppenderRef ref="SchoolSystemFile" level="info"/>
+    </Logger>
+
+    <Logger name="com.roxoft.hierarchy.io.printers.UniversitySystemPrinter" level="info" additivity="false">
+        <AppenderRef ref="UniversitySystemFile" level="info"/>
+    </Logger>
+
+    <Logger name="com.roxoft.hierarchy.io.printers.CompanySystemPrinter" level="info" additivity="false">
+        <AppenderRef ref="CompanySystemFile" level="info"/>
+    </Logger>
+
+  </Loggers>
+</Configuration>

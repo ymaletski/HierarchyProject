@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<institutes>
+  <schools>
+    <school>
+      <name>School_N4</name>
+      <address>
+        <street>Red Army st.</street>
+        <house>11</house>
+        <postcode>220030</postcode>
+        <city>Minsk</city>
+      </address>
+      <pupils>
+        <pupil name = "EVGENIA" surname = "FEDOROVA" />
+        <pupil name = "KSENIYA" surname = "KORCHAK" />
+        <pupil name = "ALISA" surname = "SOKOLOVSKAYA" />
+        <pupil name = "SERGEY" surname = "FADEYEV" />
+        <pupil name = "MAKSIM" surname = "LYSENKO" />
+        <pupil name = "DANIIL" surname = "YABLOCHKIN" />
+        <pupil name = "DANIIL" surname = "LESYN" />
+      </pupils>
+      <teachers>
+        <teacher name = "ANTONINA" surname = "GOLUB" />
+        <teacher name = "ANASTASIA" surname = "OLEGOVA" />
+      </teachers>
+    </school>
+    <school>
+      <name>School_N6</name>
+      <address>
+        <street>Jankowski st.</street>
+        <house>23</house>
+        <postcode>220019</postcode>
+        <city>Minsk</city>
+      </address>
+      <pupils>
+        <pupil name = "VIKTOR" surname = "NECHAEV" />
+        <pupil name = "DIANA" surname = "BELYKH" />
+        <pupil name = "ANASTASIA" surname = "MALAYA" />
+        <pupil name = "ELENA" surname = "SINITSYNA" />
+        <pupil name = "GLEB" surname = "HAMENYA" />
+        <pupil name = "IRINA" surname = "VOROBYOVA" />
+      </pupils>
+      <teachers>
+        <teacher name = "SOFYA" surname = "GOLUB" />
+        <teacher name = "VLADIMIR" surname = "VAVILOV" />
+      </teachers>
+    </school>
+  </schools>
+  <universities>
+    <university>
+      <name>BNTU</name>
+      <address>
+        <street>Independence Av.</street>
+        <house>65</house>
+        <postcode>220013</postcode>
+        <city>Minsk</city>
+      </address>
+      <specialities>
+        <speciality>ENGINEER-BUILDER</speciality>
+        <speciality>ENGINEER-TECHNOLOGIST</speciality>
+        <speciality>PETROLEUM-ENGINEER</speciality>
+      </specialities>
+      <students>
+        <student name = "VADIM" surname = "MARATOV" speciality = "PETROLEUM-ENGINEER"/>
+        <student name = "OLEG" surname = "TRUBETSKOI" speciality = "ENGINEER-TECHNOLOGIST"/>
+        <student name = "OLGA" surname = "ULYEVA" speciality = "ENGINEER-BUILDER"/>
+        <student name = "OLEG" surname = "KOVAL" speciality = "ENGINEER-BUILDER"/>
+        <student name = "NIKITA" surname = "ARKANOV" speciality = "PETROLEUM-ENGINEER"/>
+        <student name = "VALENTINA" surname = "IZVITSKAYA" speciality = "PETROLEUM-ENGINEER"/>
+      </students>
+      <lecturers>
+        <lecturer name = "ELLA" surname = "KUZMINA" />
+      </lecturers>
+    </university>
+    <university>
+      <name>BSEU</name>
+      <address>
+        <street>Partisan Av.</street>
+        <house>26</house>
+        <postcode>220070</postcode>
+        <city>Minsk</city>
+      </address>
+      <specialities>
+        <speciality>ECONOMIST</speciality>
+        <speciality>ACCOUNTANT</speciality>
+      </specialities>
+      <students>
+        <student name = "PAVEL" surname = "SHATILO" speciality = "ECONOMIST"/>
+        <student name = "ANDREY" surname = "PRISCHEPOV" speciality = "ACCOUNTANT"/>
+        <student name = "ALEXANDER" surname = "MARATOV" speciality = "ECONOMIST"/>
+        <student name = "EKATERINA" surname = "KUZMINA" speciality = "ACCOUNTANT"/>
+        <student name = "DENIS" surname = "ARKANOV" speciality = "ECONOMIST"/>
+        <student name = "MARIYA" surname = "SHTEYN" speciality = "ECONOMIST"/>
+        <student name = "VIKTOR" surname = "NECHAEV" speciality = "ACCOUNTANT"/>
+      </students>
+      <lecturers>
+        <lecturer name = "VALENTINA" surname = "SOKOLOVSKAYA" />
+        <lecturer name = "SVETLANA" surname = "KORYAKA" />
+        <lecturer name = "VERA" surname = "BELYKH" />
+        <lecturer name = "ELENA" surname = "ULYEVA" />
+      </lecturers>
+    </university>
+    <university>
+      <name>BSU</name>
+      <address>
+        <street>Independence Av.</street>
+        <house>4</house>
+        <postcode>220030</postcode>
+        <city>Minsk</city>
+      </address>
+      <specialities>
+        <speciality>ENGINEER-PROGRAMMER</speciality>
+        <speciality>LOGIST</speciality>
+      </specialities>
+      <students>
+        <student name = "ANNA" surname = "KORYAKA" speciality = "ENGINEER-PROGRAMMER"/>
+        <student name = "NINA" surname = "ZHAROVA" speciality = "LOGIST"/>
+        <student name = "SERGEY" surname = "DETS" speciality = "ENGINEER-PROGRAMMER"/>
+        <student name = "DIANA" surname = "RYBCHAK" speciality = "LOGIST"/>
+        <student name = "LEONID" surname = "SHATILO" speciality = "ENGINEER-PROGRAMMER"/>
+        <student name = "NIKOLAY" surname = "YABLOCHKIN" speciality = "ENGINEER-PROGRAMMER"/>
+        <student name = "ANDREY" surname = "SHATILO" speciality = "ENGINEER-PROGRAMMER"/>
+      </students>
+      <lecturers>
+        <lecturer name = "ANASTASIA" surname = "RYBCHAK" />
+        <lecturer name = "VADIM" surname = "DRAGUN" />
+        <lecturer name = "ELLA" surname = "KORCHAK" />
+      </lecturers>
+    </university>
+  </universities>
+  <companies>
+    <company>
+      <name>MAPID</name>
+      <address>
+        <street>R.Luxemburg st.</street>
+        <house>205</house>
+        <postcode>220036</postcode>
+        <city>Minsk</city>
+      </address>
+      <projects>
+        <project name = "project №95">
+          <specialities>
+            <speciality>ENGINEER-BUILDER</speciality>
+            <speciality>ACCOUNTANT</speciality>
+          </specialities>
+        </project>
+        <project name = "innovative production project">
+          <specialities>
+            <speciality>ACCOUNTANT</speciality>
+            <speciality>ENGINEER-TECHNOLOGIST</speciality>
+            <speciality>ENGINEER-BUILDER</speciality>
+            <speciality>ENGINEER-PROGRAMMER</speciality>
+          </specialities>
+        </project>
+      </projects>
+    </company>
+    <company>
+      <name>MTZ</name>
+      <address>
+        <street>Dolgobrodskaya st.</street>
+        <house>29</house>
+        <postcode>220009</postcode>
+        <city>Minsk</city>
+      </address>
+      <projects>
+        <project name = "project №991">
+          <specialities>
+            <speciality>ECONOMIST</speciality>
+            <speciality>ENGINEER-PROGRAMMER</speciality>
+            <speciality>ENGINEER-TECHNOLOGIST</speciality>
+            <speciality>ACCOUNTANT</speciality>
+          </specialities>
+        </project>
+      </projects>
+    </company>
+    <company>
+        <name>BELAVIA</name>
+        <address>
+          <street>Nemiga st.</street>
+          <house>14A</house>
+          <postcode>220004</postcode>
+          <city>Minsk</city>
+        </address>
+      <projects>
+        <project name = "project №999">
+          <specialities>
+            <speciality>LOGIST</speciality>
+            <speciality>ENGINEER-TECHNOLOGIST</speciality>
+            <speciality>ENGINEER-BUILDER</speciality>
+            <speciality>ENGINEER-TECHNOLOGIST</speciality>
+          </specialities>
+        </project>
+        <project name = "increase productivity project">
+          <specialities>
+            <speciality>ECONOMIST</speciality>
+            <speciality>ENGINEER-BUILDER</speciality>
+            <speciality>ECONOMIST</speciality>
+            <speciality>ENGINEER-BUILDER</speciality>
+          </specialities>
+        </project>
+        <project name = "project secret object №21">
+          <specialities>
+            <speciality>ENGINEER-BUILDER</speciality>
+            <speciality>PETROLEUM-ENGINEER</speciality>
+            <speciality>ACCOUNTANT</speciality>
+          </specialities>
+        </project>
+      </projects>
+    </company>
+  </companies>
+</institutes>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.CompanyMapper">
+
+  <resultMap id="comRM1" type="Company">
+    <result property="name" column="name"/>
+    <association
+      property="address"
+      column="address_id"
+      javaType="Address"
+      select="com.roxoft.hierarchy.mybatis.mappers.AddressMapper.getAddressById"
+      fetchType="eager"
+    />
+    <collection
+      property="projects"
+      column="company_id"
+      javaType="List"
+      ofType="Project"
+      select="com.roxoft.hierarchy.mybatis.mappers.ProjectMapper.getProjectByCompanyId"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <resultMap id="comRM2" type="Company">
+    <result property="name" column="name"/>
+    <association
+      property="address"
+      column="address_id"
+      javaType="Address"
+      select="com.roxoft.hierarchy.mybatis.mappers.AddressMapper.getAddressById"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <select id="getAllData" resultType="Company" resultMap="comRM1">
+    SELECT company_id, name, address_id FROM companies
+  </select>
+
+  <select id="getCompanyById" parameterType="java.lang.Integer" resultType="Company" resultMap="comRM1">
+  SELECT company_id, name, address_id FROM companies WHERE company_id = #{company_id}
+  </select>
+
+  <select id="getPureCompanyById" parameterType="java.lang.Integer" resultType="Company" resultMap="comRM2">
+    SELECT company_id, name, address_id FROM companies WHERE company_id = #{company_id}
+  </select>
+
+</mapper>

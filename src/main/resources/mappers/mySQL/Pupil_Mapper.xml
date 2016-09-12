@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.PupilMapper">
+
+  <resultMap id="pupRM1" type="Pupil">
+    <result property="name" column="name"/>
+    <result property="surname" column="surname"/>
+  </resultMap>
+
+  <resultMap id="pupRM2" type="Pupil">
+    <result property="name" column="name"/>
+    <result property="surname" column="surname"/>
+    <association
+      property="school"
+      column="school_id"
+      javaType="School"
+      select="com.roxoft.hierarchy.mybatis.mappers.SchoolMapper.getPureSchoolById"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <select id="getPupulsBySchoolId" parameterType="java.lang.Integer" resultType="Pupil" resultMap="pupRM1">
+    SELECT name, surname FROM pupils WHERE school_id = #{school_id}
+  </select>
+
+  <select id="getAllDataWithSchoolsNames" parameterType="java.lang.Integer" resultType="Pupil" resultMap="pupRM2">
+    SELECT name, surname, school_id FROM pupils
+  </select>
+
+<!--
+  <select id="getAllData" resultType="Pupil" resultMap="pupRM1">
+    SELECT name, surname FROM pupils
+  </select>
+-->
+
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.UniversityMapper">
+
+  <resultMap id="unRM1" type="University">
+    <result property="name" column="name"/>
+    <association
+      property="address"
+      column="address_id"
+      javaType="Address"
+      select="com.roxoft.hierarchy.mybatis.mappers.AddressMapper.getAddressById"
+      fetchType="eager"
+    />
+    <collection
+      property="students"
+      column="university_id"
+      javaType="List"
+      ofType="Student"
+      select="com.roxoft.hierarchy.mybatis.mappers.StudentMapper.getStudentsByUniversityId"
+      fetchType="eager"
+    />
+    <collection
+      property="lecturers"
+      column="university_id"
+      javaType="List"
+      ofType="Lecturer"
+      select="com.roxoft.hierarchy.mybatis.mappers.LecturerMapper.getLecturersByUniversityId"
+      fetchType="eager"
+    />
+    <collection
+      property="specialities"
+      column="university_id"
+      javaType="List"
+      ofType="String"
+      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByUniversityId"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <resultMap id="unRM2" type="University">
+    <result property="name" column="name"/>
+    <association
+      property="address"
+      column="address_id"
+      javaType="Address"
+      select="com.roxoft.hierarchy.mybatis.mappers.AddressMapper.getAddressById"
+      fetchType="eager"
+    />
+    <collection
+      property="specialities"
+      column="university_id"
+      javaType="List"
+      ofType="String"
+      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByUniversityId"
+      fetchType="eager"
+    />
+  </resultMap>
+
+  <select id="getAllData" resultType="University" resultMap="unRM1">
+    SELECT university_id, name, address_id FROM universities
+  </select>
+
+  <select id="getUniversityById" parameterType="java.lang.Integer" resultType="University" resultMap="unRM1">
+    SELECT university_id, name, address_id FROM universities WHERE university_id = #{university_id}
+  </select>
+
+  <select id="getPureUniversityById" parameterType="java.lang.Integer" resultType="University" resultMap="unRM2">
+    SELECT university_id, name, address_id FROM universities WHERE university_id = #{university_id}
+  </select>
+
+</mapper>

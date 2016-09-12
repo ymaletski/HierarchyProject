@@ -1,0 +1,194 @@
+{
+"schools" :
+  [
+    {
+      "name" : "School_N4",
+      "address" : {
+        "street" : "Red Army st.",
+        "house" : "11",
+        "postcode" : "220030",
+        "city" : "Minsk"
+      },
+      "pupils" :
+      [
+        { "name" : "EVGENIA", "surname" : "FEDOROVA" },
+        { "name" : "KSENIYA", "surname" : "KORCHAK"  },
+        { "name" : "ALISA", "surname" : "SOKOLOVSKAYA" },
+        { "name" : "SERGEY", "surname" : "FADEYEV" },
+        { "name" : "MAKSIM", "surname" : "LYSENKO" },
+        { "name" : "DANIIL", "surname" : "YABLOCHKIN" },
+        { "name" : "DANIIL", "surname" : "LESYN" }
+      ],
+      "teachers" :
+      [
+        { "name" : "ANTONINA", "surname" : "GOLUB" },
+        { "name" : "ANASTASIA", "surname" : "OLEGOVA" }
+      ]
+    },
+    {
+      "name" : "School_N6",
+      "address" : {
+        "street" : "Jankowski st.",
+        "house" : "23",
+        "postcode" : "220019",
+        "city" : "Minsk"
+      },
+      "pupils" :
+      [
+        { "name" : "VIKTOR", "surname" : "NECHAEV" },
+        { "name" : "DIANA", "surname" : "BELYKH"  },
+        { "name" : "ANASTASIA", "surname" : "MALAYA" },
+        { "name" : "ELENA", "surname" : "SINITSYNA" },
+        { "name" : "GLEB", "surname" : "HAMENYA" },
+        { "name" : "IRINA", "surname" : "VOROBYOVA" }
+      ],
+      "teachers" :
+      [
+        { "name" : "SOFYA", "surname" : "GOLUB" },
+        { "name" : "VLADIMIR", "surname" : "VAVILOV" }
+      ]
+    }
+  ],
+"universities" :
+  [
+    {
+      "name" : "BNTU",
+      "address" : {
+        "street" : "Independence Av.",
+        "house" : "65",
+        "postcode" : "220013",
+        "city" : "Minsk"
+      },
+      "specialities" : [ "ENGINEER-BUILDER", "ENGINEER-TECHNOLOGIST", "PETROLEUM-ENGINEER"],
+      "students" :
+      [
+        { "name" : "VADIM", "surname" : "MARATOV", "speciality" : "PETROLEUM-ENGINEER" },
+        { "name" : "OLEG", "surname" : "TRUBETSKOI", "speciality" : "ENGINEER-TECHNOLOGIST" },
+        { "name" : "OLGA", "surname" : "ULYEVA", "speciality" : "ENGINEER-BUILDER" },
+        { "name" : "OLEG", "surname" : "KOVAL", "speciality" : "ENGINEER-BUILDER" },
+        { "name" : "NIKITA", "surname" : "ARKANOV", "speciality" : "PETROLEUM-ENGINEER" },
+        { "name" : "VALENTINA", "surname" : "IZVITSKAYA", "speciality" : "PETROLEUM-ENGINEER" }
+      ],
+      "lecturers" :
+      [
+        { "name" : "ELLA", "surname" : "KUZMINA" }
+      ]
+    },
+    {
+      "name" : "BSEU",
+      "address" : {
+        "street" : "Partisan Av.",
+        "house" : "26",
+        "postcode" : "220070",
+        "city" : "Minsk"
+      },
+      "specialities" : [ "ECONOMIST", "ACCOUNTANT"],
+      "students" :
+      [
+        { "name" : "PAVEL", "surname" : "SHATILO", "speciality" : "ECONOMIST" },
+        { "name" : "ANDREY", "surname" : "PRISCHEPOV", "speciality" : "ACCOUNTANT" },
+        { "name" : "ALEXANDER", "surname" : "MARATOV", "speciality" : "ECONOMIST" },
+        { "name" : "EKATERINA", "surname" : "KUZMINA", "speciality" : "ACCOUNTANT" },
+        { "name" : "DENIS", "surname" : "ARKANOV", "speciality" : "ECONOMIST" },
+        { "name" : "MARIYA", "surname" : "SHTEYN", "speciality" : "ECONOMIST" },
+        { "name" : "VIKTOR", "surname" : "NECHAEV", "speciality" : "ACCOUNTANT" }
+      ],
+      "lecturers" :
+      [
+        { "name" : "VALENTINA", "surname" : "SOKOLOVSKAYA" },
+        { "name" : "SVETLANA", "surname" : "KORYAKA" },
+        { "name" : "VERA", "surname" : "BELYKH" },
+        { "name" : "ELENA", "surname" : "ULYEVA" }
+      ]
+    },
+    {
+      "name" : "BSU",
+      "address" : {
+        "street" : "Independence Av.",
+        "house" : "4",
+        "postcode" : "220030",
+        "city" : "Minsk"
+      },
+      "specialities" : [ "ENGINEER-PROGRAMMER", "LOGIST"],
+      "students" :
+      [
+        { "name" : "ANNA", "surname" : "KORYAKA", "speciality" : "ENGINEER-PROGRAMMER" },
+        { "name" : "NINA", "surname" : "ZHAROVA", "speciality" : "LOGIST" },
+        { "name" : "SERGEY", "surname" : "DETS", "speciality" : "ENGINEER-PROGRAMMER" },
+        { "name" : "DIANA", "surname" : "RYBCHAK", "speciality" : "LOGIST" },
+        { "name" : "LEONID", "surname" : "SHATILO", "speciality" : "ENGINEER-PROGRAMMER" },
+        { "name" : "NIKOLAY", "surname" : "YABLOCHKIN", "speciality" : "ENGINEER-PROGRAMMER" },
+        { "name" : "ANDREY", "surname" : "SHATILO", "speciality" : "ENGINEER-PROGRAMMER" }
+      ],
+      "lecturers" :
+      [
+        { "name" : "ANASTASIA", "surname" : "RYBCHAK" },
+        { "name" : "VADIM", "surname" : "DRAGUN" },
+        { "name" : "ELLA", "surname" : "KORCHAK" }
+      ]
+    }
+  ],
+"companies" :
+  [
+    {
+      "name" : "MAPID",
+      "address" : {
+        "street" : "R.Luxemburg st.",
+        "house" : "205",
+        "postcode" : "220036",
+        "city" : "Minsk"
+      },
+      "projects" :
+      [
+          {
+            "name" : "project №95",
+            "specialities" : [ "ENGINEER-BUILDER", "ACCOUNTANT" ]
+          },
+          {
+            "name" : "innovative production project",
+            "specialities" : [ "ACCOUNTANT", "ENGINEER-TECHNOLOGIST",  "ENGINEER-BUILDER", "ENGINEER-PROGRAMMER" ]
+          }
+      ]
+    },
+    {
+      "name" : "MTZ",
+      "address" : {
+        "street" : "Dolgobrodskaya st.",
+        "house" : "29",
+        "postcode" : "220009",
+        "city" : "Minsk"
+      },
+      "projects" :
+      [
+          {
+            "name" : "project №991",
+            "specialities" : [ "ECONOMIST", "ENGINEER-PROGRAMMER",  "ENGINEER-TECHNOLOGIST", "ACCOUNTANT" ]
+          }
+      ]
+    },
+    {
+      "name" : "BELAVIA",
+      "address" : {
+        "street" : "Nemiga st.",
+        "house" : "14A",
+        "postcode" : "220004",
+        "city" : "Minsk"
+      },
+      "projects" :
+      [
+          {
+            "name" : "project №999",
+            "specialities" : [ "LOGIST", "ENGINEER-TECHNOLOGIST",  "ENGINEER-BUILDER", "ENGINEER-TECHNOLOGIST" ]
+          },
+          {
+            "name" : "increase productivity project",
+            "specialities" : [ "ECONOMIST", "ENGINEER-BUILDER",  "ECONOMIST", "ENGINEER-BUILDER" ]
+          },
+          {
+            "name" : "project secret object №21",
+            "specialities" : [ "ENGINEER-BUILDER", "PETROLEUM-ENGINEER",  "ACCOUNTANT" ]
+          }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.AddressMapper">
+
+  <resultMap id="addrRM1" type="Address">
+    <result property="postcode" column="postcode"/>
+    <result property="city" column="city"/>
+    <result property="street" column="street"/>
+    <result property="house" column="house"/>
+  </resultMap>
+
+<!--
+  <select id="getAddressById" parameterType="java.lang.Integer" resultType="Address" resultMap="addrRM1">
+    SELECT postcode, city, street, house FROM addresses WHERE address_id = #{address_id}
+  </select>
+-->
+
+<!--
+  <select id="getAllData" resultType="Address" resultMap="addrRM1">
+    SELECT postcode, city, street, house FROM addresses
+  </select>
+-->
+
+</mapper>
