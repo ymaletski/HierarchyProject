@@ -1,0 +1,16 @@
+INFO  2016-09-28T23:28:16,153 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:printUniversitySystem(100): 
+University System
+INFO  2016-09-28T23:28:16,154 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(42): 
+University System
+
+INFO  2016-09-28T23:28:16,154 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(43): Number of students: 0.
+INFO  2016-09-28T23:28:16,154 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(49): Number of lecturers: 0.
+INFO  2016-09-28T23:28:16,154 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(54): Number of universities: 0.
+INFO  2016-09-28T23:28:16,159 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:printUniversitySystem(100): 
+University System
+INFO  2016-09-28T23:28:16,159 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(42): 
+University System
+
+INFO  2016-09-28T23:28:16,159 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(43): Number of students: 0.
+INFO  2016-09-28T23:28:16,159 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(49): Number of lecturers: 0.
+INFO  2016-09-28T23:28:16,159 [main] com.roxoft.hierarchy.io.printers.UniversitySystemPrinter:purePrint(54): Number of universities: 0.

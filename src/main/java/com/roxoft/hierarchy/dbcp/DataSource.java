@@ -6,8 +6,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class DataSource {
+	
+	private static final Logger rootLogger = LogManager.getRootLogger();
 	
 	private static DataSource dataSource;
     private BasicDataSource basicDataSource;
@@ -32,16 +36,13 @@ public class DataSource {
             else if("systems".equals(schemaType)){
             	basicDataSource.setUrl(properties.getProperty("MYSQL_DB_URL_FOR_SYSTEMS_SCHEMA"));
             }
-            else {
-            	System.out.println("58tyujghj");
-            }
             
             basicDataSource.setMinIdle(5);
             basicDataSource.setMaxIdle(20);
             basicDataSource.setMaxOpenPreparedStatements(180); 
             
 		} catch(IOException e) {			
-			e.printStackTrace();			
+			rootLogger.error("IOException", e);			
 		}
     	
     }

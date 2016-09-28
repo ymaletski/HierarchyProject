@@ -1,24 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
+
+  <Properties>
+
+    <Property name="LOG_DIR">logs</Property>
+    <Property name="ARCHIVE">${LOG_DIR}/archive</Property>
+    <Property name="PATTERN">%-5level %d{ISO8601} [%t] %c:%M(%L): %m%n</Property>
+
+  </Properties>
+
   <Appenders>
 
-    <File name="SchoolSystemFile" fileName="logs/SchoolSystem.log">
-			  <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-		</File>
+    <RollingFile name="SchoolSystemFile" fileName="${LOG_DIR}/SchoolSystem.log"
+      filePattern="${ARCHIVE}/SchoolSystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
+      <PatternLayout pattern="${PATTERN}"/>
 
-    <File name="UniversitySystemFile" fileName="logs/UniversitySystem.log">
-			  <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-		</File>
+      <Policies>
+        <!--<TimeBasedTriggeringPolicy />-->
+        <SizeBasedTriggeringPolicy size="250 KB"/>
+      </Policies>
 
-    <File name="CompanySystemFile" fileName="logs/CompanySystem.log">
-			  <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-		</File>
+      <DefaultRolloverStrategy max="20"/>
+
+    </RollingFile>
+
+    <RollingFile name="UniversitySystemFile" fileName="${LOG_DIR}/UniversitySystem.log"
+      filePattern="${ARCHIVE}/UniversitySystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
+      <PatternLayout pattern="${PATTERN}"/>
+
+      <Policies>
+        <!--<TimeBasedTriggeringPolicy />-->
+        <SizeBasedTriggeringPolicy size="250 KB"/>
+      </Policies>
+
+      <DefaultRolloverStrategy max="20"/>
+
+    </RollingFile>
+
+    <RollingFile name="CompanySystemFile" fileName="${LOG_DIR}/CompanySystem.log"
+      filePattern="${ARCHIVE}/CompanySystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
+      <PatternLayout pattern="${PATTERN}"/>
+
+      <Policies>
+        <!--<TimeBasedTriggeringPolicy />-->
+        <SizeBasedTriggeringPolicy size="250 KB"/>
+      </Policies>
+
+      <DefaultRolloverStrategy max="20"/>
+
+    </RollingFile>
 
     <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <PatternLayout pattern="${PATTERN}"/>
     </Console>
 
   </Appenders>
+
   <Loggers>
 
     <Root level="all">
@@ -26,16 +63,20 @@
     </Root>
 
     <Logger name="com.roxoft.hierarchy.io.printers.SchoolSystemPrinter" level="info" additivity="false">
-        <AppenderRef ref="SchoolSystemFile" level="info"/>
+        <AppenderRef ref="SchoolSystemFile"/>
+        <AppenderRef ref="Console"/>
     </Logger>
 
     <Logger name="com.roxoft.hierarchy.io.printers.UniversitySystemPrinter" level="info" additivity="false">
-        <AppenderRef ref="UniversitySystemFile" level="info"/>
+        <AppenderRef ref="UniversitySystemFile"/>
+        <AppenderRef ref="Console"/>
     </Logger>
 
     <Logger name="com.roxoft.hierarchy.io.printers.CompanySystemPrinter" level="info" additivity="false">
-        <AppenderRef ref="CompanySystemFile" level="info"/>
+        <AppenderRef ref="CompanySystemFile"/>
+        <AppenderRef ref="Console"/>
     </Logger>
 
   </Loggers>
+
 </Configuration>

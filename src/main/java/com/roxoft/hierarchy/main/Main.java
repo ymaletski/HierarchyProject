@@ -170,9 +170,9 @@ public class Main {
 			csp1.printCompanySystem(instituteHandlerJaxb.getCompanies());
 			
 		} catch (JAXBException e) {
-			e.printStackTrace();
+			rootLogger.error("JAXBException", e);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			rootLogger.error("FileNotFoundException", e);
 		}
 		*/
 		/*
@@ -202,8 +202,7 @@ public class Main {
 			csp2.printCompanySystem(instituteHandlerJackson.getCompanies());
 				
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rootLogger.error("IOException", e);
 		}
 		*/
 		/*
@@ -211,31 +210,25 @@ public class Main {
 		try {
 			httpExample.getListOfCountries();
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rootLogger.error("ClientProtocolException", e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rootLogger.error("IOException", e);
 		}
 		
 		try {
 			httpExample.getCountry("ZW");
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rootLogger.error("ClientProtocolException", e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rootLogger.error("IOException", e);
 		}
 				
 		try {
 			httpExample.sendPost();
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rootLogger.error("ClientProtocolException", e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			rootLogger.error("IOException", e);
 		}
 		*/
 		

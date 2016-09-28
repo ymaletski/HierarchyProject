@@ -1,0 +1,16 @@
+INFO  2016-09-28T23:28:16,134 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:printSchoolSystem(92): 
+School System
+INFO  2016-09-28T23:28:16,134 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(40): 
+School System
+
+INFO  2016-09-28T23:28:16,135 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(41): Number of pupils: 0.
+INFO  2016-09-28T23:28:16,135 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(46): Number of teachers: 0.
+INFO  2016-09-28T23:28:16,135 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(51): Number of schools: 0.
+INFO  2016-09-28T23:28:16,141 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:printSchoolSystem(92): 
+School System
+INFO  2016-09-28T23:28:16,141 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(40): 
+School System
+
+INFO  2016-09-28T23:28:16,142 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(41): Number of pupils: 0.
+INFO  2016-09-28T23:28:16,142 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(46): Number of teachers: 0.
+INFO  2016-09-28T23:28:16,142 [main] com.roxoft.hierarchy.io.printers.SchoolSystemPrinter:purePrint(51): Number of schools: 0.

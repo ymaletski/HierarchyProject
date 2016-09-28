@@ -1,0 +1,14 @@
+INFO  2016-09-28T23:28:16,167 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:printCompanySystem(77): 
+Company System
+INFO  2016-09-28T23:28:16,168 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:purePrint(34): 
+Company System
+
+INFO  2016-09-28T23:28:16,168 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:purePrint(35): Number of projects: 0.
+INFO  2016-09-28T23:28:16,168 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:purePrint(41): Number of companies: 0.
+INFO  2016-09-28T23:28:16,174 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:printCompanySystem(77): 
+Company System
+INFO  2016-09-28T23:28:16,174 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:purePrint(34): 
+Company System
+
+INFO  2016-09-28T23:28:16,174 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:purePrint(35): Number of projects: 0.
+INFO  2016-09-28T23:28:16,174 [main] com.roxoft.hierarchy.io.printers.CompanySystemPrinter:purePrint(41): Number of companies: 0.

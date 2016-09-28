@@ -6,8 +6,12 @@ import java.io.InputStream;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SessionFactory {
+	
+	private static final Logger rootLogger = LogManager.getRootLogger();
 	
 	private static SessionFactory sessionFactory;
 	private SqlSessionFactory sqlSessionFactory;
@@ -21,7 +25,7 @@ public class SessionFactory {
 			inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (IOException e) {	
-			e.printStackTrace();
+			rootLogger.error("IOException", e);
 		}
 		
 	}
