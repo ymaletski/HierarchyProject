@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.roxoft.hierarchy.dao.IDAOSpeciality;
-import com.roxoft.hierarchy.dao.JeneralSystemsDAO;
+import com.roxoft.hierarchy.dao.GeneralSystemsDAO;
 
-public class SpecialityDAO extends JeneralSystemsDAO implements IDAOSpeciality {
+public class SpecialityDAO extends GeneralSystemsDAO implements IDAOSpeciality {
 
 	public SpecialityDAO(Connection connection) {
 		this.connection = connection;

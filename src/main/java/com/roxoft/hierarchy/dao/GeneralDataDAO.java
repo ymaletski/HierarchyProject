@@ -4,7 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public abstract class JeneralSystemsDAO {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public abstract class GeneralDataDAO {
+	
+	private static final Logger rootLogger = LogManager.getRootLogger();
 	
 	protected Connection connection;
 	
@@ -15,7 +20,7 @@ public abstract class JeneralSystemsDAO {
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			rootLogger.error("SQLException", e);
 		}
 		
 		return preparedStatement;
@@ -29,9 +34,9 @@ public abstract class JeneralSystemsDAO {
 				preparedStatement.close();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			rootLogger.error("SQLException", e);
 		}
 			
-	}
-	
+	}	
+
 }

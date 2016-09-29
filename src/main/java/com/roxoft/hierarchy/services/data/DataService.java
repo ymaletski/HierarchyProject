@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.roxoft.hierarchy.dao.data.CompaniesNamesDAO;
 import com.roxoft.hierarchy.dao.data.NamesFemaleDAO;
 import com.roxoft.hierarchy.dao.data.NamesMaleDAO;
@@ -16,6 +19,8 @@ import com.roxoft.hierarchy.dao.data.UniversitiesNamesDAO;
 import com.roxoft.hierarchy.dbcp.DataSource;
 
 public class DataService {
+	
+	private static final Logger rootLogger = LogManager.getRootLogger();
 		
 	private ArrayList<String> dataMaleNames = new ArrayList<String>();
 	private ArrayList<String> dataFemaleNames = new ArrayList<String>();
@@ -47,13 +52,13 @@ public class DataService {
 			setProjectsNames(connection);
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			rootLogger.error("SQLException", e);
 		} finally {
 			if (connection != null) 
 				try { 
 					connection.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					rootLogger.error("SQLException", e);
 				}
 		}
 					
@@ -191,52 +196,43 @@ public class DataService {
 
 	public void printData() {
 		
-		System.out.println("\nAll data from DB 'initial_data'\n");
+		rootLogger.info("\nAll data from DB 'initial_data'\n");
 		
-		System.out.println("Names male:");
+		rootLogger.info("Names male:");
 		for (String str : dataMaleNames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Names female");
+		rootLogger.info("Names female");
 		for (String str : dataFemaleNames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Surnames male");
+		rootLogger.info("Surnames male");
 		for (String str : dataMaleSurnames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Surnames female");
+		rootLogger.info("Surnames female");
 		for (String str : dataFemaleSurnames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Schools names");
+		rootLogger.info("Schools names");
 		for (String str : dataSchoolsNames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Universities names");
+		rootLogger.info("Universities names");
 		for (String str : dataUniversitiesNames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Companies names");
+		rootLogger.info("Companies names");
 		for (String str : dataCompaniesNames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Specialities names");
+		rootLogger.info("Specialities names");
 		for (String str : dataSpecialitiesNames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
-		System.out.println("Projects names");
+		rootLogger.info("Projects names");
 		for (String str : dataProjectsNames)
-			System.out.print(str + " ");
-		System.out.println();
+			rootLogger.info(str + " ");
 		
 	}
 	

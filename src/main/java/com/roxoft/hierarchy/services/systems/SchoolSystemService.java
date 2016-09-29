@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.roxoft.hierarchy.dao.systems.AddressDAO;
 import com.roxoft.hierarchy.dao.systems.PupilDAO;
 import com.roxoft.hierarchy.dao.systems.SchoolDAO;
@@ -14,6 +17,8 @@ import com.roxoft.hierarchy.models.human.Teacher;
 import com.roxoft.hierarchy.models.institutions.School;
 
 public class SchoolSystemService {
+	
+	private static final Logger rootLogger = LogManager.getRootLogger();
 	
 	private ArrayList<Pupil> pupils = new ArrayList<Pupil>();
 	private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
@@ -54,13 +59,13 @@ public class SchoolSystemService {
 			}					
 						
 		} catch (SQLException e) {
-			e.printStackTrace();
+			rootLogger.error("SQLException", e);	
 		} finally {
 			if (connection != null) 
 				try { 
 					connection.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					rootLogger.error("SQLException", e);	
 				}
 		}
 	
@@ -117,13 +122,13 @@ public class SchoolSystemService {
 			}
 						
 		} catch (SQLException e) {
-			e.printStackTrace();
+			rootLogger.error("SQLException", e);	
 		} finally {
 			if (connection != null) 
 				try { 
 					connection.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					rootLogger.error("SQLException", e);	
 				}
 		}
 		

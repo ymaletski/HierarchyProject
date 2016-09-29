@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public abstract class JeneralDataDAO {
+public abstract class GeneralSystemsDAO {
 	
 	protected Connection connection;
 	
@@ -32,6 +32,6 @@ public abstract class JeneralDataDAO {
 			e.printStackTrace();
 		}
 			
-	}	
-
+	}
+	
 }

@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.roxoft.hierarchy.dao.IDAOData;
-import com.roxoft.hierarchy.dao.JeneralDataDAO;
+import com.roxoft.hierarchy.dao.GeneralDataDAO;
 import com.roxoft.hierarchy.data.Schools;
 
-public class SchoolsNamesDAO extends JeneralDataDAO implements IDAOData {
+public class SchoolsNamesDAO extends GeneralDataDAO implements IDAOData {
 	
 	public SchoolsNamesDAO(Connection connection) {
 		this.connection = connection;

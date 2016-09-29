@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.roxoft.hierarchy.dao.IDAOPupil;
-import com.roxoft.hierarchy.dao.JeneralSystemsDAO;
+import com.roxoft.hierarchy.dao.GeneralSystemsDAO;
 import com.roxoft.hierarchy.models.human.Pupil;
 
-public class PupilDAO extends JeneralSystemsDAO implements IDAOPupil {
+public class PupilDAO extends GeneralSystemsDAO implements IDAOPupil {
 	
 	public PupilDAO(Connection connection) {
 		this.connection = connection;

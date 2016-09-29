@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.roxoft.hierarchy.dao.IDAOCompany;
-import com.roxoft.hierarchy.dao.JeneralSystemsDAO;
+import com.roxoft.hierarchy.dao.GeneralSystemsDAO;
 import com.roxoft.hierarchy.models.institutions.Company;
 
-public class CompanyDAO extends JeneralSystemsDAO implements IDAOCompany {
+public class CompanyDAO extends GeneralSystemsDAO implements IDAOCompany {
 
 	public CompanyDAO(Connection connection) {
 		this.connection = connection;

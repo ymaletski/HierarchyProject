@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.roxoft.hierarchy.dao.systems.AddressDAO;
 import com.roxoft.hierarchy.dao.systems.CompanyDAO;
 import com.roxoft.hierarchy.dao.systems.ProjectDAO;
@@ -13,6 +16,8 @@ import com.roxoft.hierarchy.models.institutions.Company;
 import com.roxoft.hierarchy.models.projects.Project;
 
 public class CompanySystemService {
+	
+	private static final Logger rootLogger = LogManager.getRootLogger();
 	
 	private ArrayList<Company> companies = new ArrayList<Company>();
 	private ArrayList<Project> projects = new ArrayList<Project>();
@@ -49,13 +54,13 @@ public class CompanySystemService {
 			}
 						
 		} catch (SQLException e) {
-			e.printStackTrace();
+			rootLogger.error("SQLException", e);
 		} finally {
 			if (connection != null) 
 				try { 
 					connection.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					rootLogger.error("SQLException", e);
 				}
 		}
 	
@@ -116,13 +121,13 @@ public class CompanySystemService {
 			}							
 						
 		} catch (SQLException e) {
-			e.printStackTrace();
+			rootLogger.error("SQLException", e);
 		} finally {
 			if (connection != null) 
 				try { 
 					connection.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					rootLogger.error("SQLException", e);
 				}
 		}
 		

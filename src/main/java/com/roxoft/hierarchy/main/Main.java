@@ -43,31 +43,31 @@ public class Main {
 		
 	public static void main(String[] args){
 				
-		/*				
+						
 		SchoolSystem ss = new SchoolSystem();
 		ss.fillSchoolSystem(4, 8, 24);
-		*/SchoolSystemPrinter ssp = new SchoolSystemPrinter();/*
-		ssp.purePrint(ss.getPupils(), ss.getTeachers(), ss.getSchools());
-		ssp.printSchoolSystem(ss.getSchools());
+		SchoolSystemPrinter ssp = new SchoolSystemPrinter();
+//		ssp.purePrint(ss.getPupils(), ss.getTeachers(), ss.getSchools());
+//		ssp.printSchoolSystem(ss.getSchools());
 		
 		UniversitySystem us = new UniversitySystem();
 		us.fillUniversitySystem(4, 12, 36);
-		*/UniversitySystemPrinter usp = new UniversitySystemPrinter();/*
-		usp.purePrint(us.getStudents(), us.getLecturers(), us.getUniversities());
-		usp.printUniversitySystem(us.getUniversities());
+		UniversitySystemPrinter usp = new UniversitySystemPrinter();
+//		usp.purePrint(us.getStudents(), us.getLecturers(), us.getUniversities());
+//		usp.printUniversitySystem(us.getUniversities());
 		
 		CompanySystem cs = new CompanySystem();
 		cs.fillCompanySystem(3, 6);
-		*/CompanySystemPrinter csp = new CompanySystemPrinter();/*
-		csp.purePrint(cs.getProjects(), cs.getCompanies());
-		csp.printCompanySystem(cs.getCompanies());
-		*/
-		/*
+		CompanySystemPrinter csp = new CompanySystemPrinter();
+//		csp.purePrint(cs.getProjects(), cs.getCompanies());
+//		csp.printCompanySystem(cs.getCompanies());
+		
+		
 		DataService dataService = new DataService();
 		dataService.fillAllData();
 		dataService.printData();
-		*/
-		/*
+		
+		
 		SchoolSystemService sss = new SchoolSystemService();
 		sss.recordSchoolSystem(ss.getSchools(), ss.getTeachers(), ss.getPupils());
 		//sss.createSchoolSystem();
@@ -88,7 +88,7 @@ public class Main {
 		//System.out.println("\nOutput company system from DB");
 		//csp.purePrint(css.getProjects(), css.getCompanies());
 		//csp.printCompanySystem(css.getCompanies());
-		*/
+		
 		
 		rootLogger.info("\nMyBatis");
 		rootLogger.info("====================");
