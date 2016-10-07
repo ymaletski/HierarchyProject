@@ -1,4 +1,4 @@
-package com.roxoft.hierarchy.mybatis.mbDAO;
+package com.roxoft.hierarchy.dao.mybatis.mbDAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import com.roxoft.hierarchy.models.human.Student;
 
 public class StudentMBDAO {
 	
-	protected static final String NAMESPACE = "com.roxoft.hierarchy.mybatis.mappers.StudentMapper";
+	protected static final String NAMESPACE = "com.roxoft.hierarchy.dao.mybatis.mappers.StudentMapper";
 	protected SqlSessionFactory sqlSessionFactory;
 
 	public StudentMBDAO(final SqlSessionFactory sqlSessionFactory)
@@ -19,11 +19,9 @@ public class StudentMBDAO {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 	
-	public ArrayList<Student> getAllData() {
-		
+	public ArrayList<Student> getAllData() {		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Student> students = new ArrayList<Student>();
-		
+		ArrayList<Student> students = new ArrayList<Student>();		
 		try
 		{
 			final String query = NAMESPACE + ".getAllData";
@@ -31,15 +29,12 @@ public class StudentMBDAO {
 			return students;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public ArrayList<Student> getStudentsByUniversityId(int universityId){
-		
+	public ArrayList<Student> getStudentsByUniversityId(int universityId){		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Student> students = new ArrayList<Student>();
-		
+		ArrayList<Student> students = new ArrayList<Student>();	
 		try
 		{
 			final String query = NAMESPACE + ".getStudentsByUniversityId";
@@ -49,15 +44,12 @@ public class StudentMBDAO {
 			return students;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public ArrayList<Student> getAllDataWithUniversitiesNames() {
-		
+	public ArrayList<Student> getAllDataWithUniversitiesNames() {		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Student> students = new ArrayList<Student>();
-		
+		ArrayList<Student> students = new ArrayList<Student>();		
 		try
 		{
 			final String query = NAMESPACE + ".getAllDataWithUniversitiesNames";
@@ -65,8 +57,7 @@ public class StudentMBDAO {
 			return students;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 
 }

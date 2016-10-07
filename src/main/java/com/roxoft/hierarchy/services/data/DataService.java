@@ -20,220 +20,183 @@ import com.roxoft.hierarchy.dbcp.DataSource;
 
 public class DataService {
 	
-	private static final Logger rootLogger = LogManager.getRootLogger();
-		
-	private ArrayList<String> dataMaleNames = new ArrayList<String>();
-	private ArrayList<String> dataFemaleNames = new ArrayList<String>();
-	private ArrayList<String> dataMaleSurnames = new ArrayList<String>();
-	private ArrayList<String> dataFemaleSurnames = new ArrayList<String>();
-	private ArrayList<String> dataSchoolsNames = new ArrayList<String>();
-	private ArrayList<String> dataUniversitiesNames = new ArrayList<String>();
-	private ArrayList<String> dataCompaniesNames = new ArrayList<String>();
-	private ArrayList<String> dataSpecialitiesNames = new ArrayList<String>();
-	private ArrayList<String> dataProjectsNames = new ArrayList<String>();
+	private static final Logger LOGGER = LogManager.getLogger(DataService.class);
 	
-	public void fillAllData(){
-		
+	public void fillAllData(){	
 		Connection connection = null;
-		try {
-			
-			connection = DataSource.getInstance("initial_data").getConnection();
-				
-			clearAllData();
-			
-			setMaleNames(connection);
-			setFemaleNames(connection);
-			setMaleSurnames(connection);
-			setFemaleSurnames(connection);
-			setSchoolsNames(connection);
-			setUniversitiesNames(connection);
-			setCompaniesNames(connection);
-			setSpecialitiesNames(connection);
-			setProjectsNames(connection);
-			
+		try {		
+			connection = DataSource.getInstance("initial_data").getConnection();			
+			fillMaleNames(connection);
+			fillFemaleNames(connection);
+			fillMaleSurnames(connection);
+			fillFemaleSurnames(connection);
+			fillSchoolsNames(connection);
+			fillUniversitiesNames(connection);
+			fillCompaniesNames(connection);
+			fillSpecialitiesNames(connection);
+			fillProjectsNames(connection);		
 		} catch (SQLException e) {
-			rootLogger.error("SQLException", e);
+			LOGGER.error("SQLException in DataService.fillAllData(): ", e);
 		} finally {
 			if (connection != null) 
 				try { 
 					connection.close();
 				} catch (SQLException e) {
-					rootLogger.error("SQLException", e);
+					LOGGER.error("SQLException in DataService.fillAllData(): ", e);
 				}
-		}
-					
+		}					
 	}
 	
-	private void clearAllData(){
-		
-		if (!(dataMaleNames.isEmpty()))
-			dataMaleNames.clear();
-		if (!(dataFemaleNames.isEmpty()))
-			dataFemaleNames.clear();
-		if (!(dataMaleSurnames.isEmpty()))
-			dataMaleSurnames.clear();
-		if (!(dataFemaleSurnames.isEmpty()))
-			dataFemaleSurnames.clear();
-		if (!(dataSchoolsNames.isEmpty()))
-			dataSchoolsNames.clear();
-		if (!(dataUniversitiesNames.isEmpty()))
-			dataUniversitiesNames.clear();
-		if (!(dataCompaniesNames.isEmpty()))
-			dataCompaniesNames.clear();
-		if (!(dataSpecialitiesNames.isEmpty()))
-			dataSpecialitiesNames.clear();
-		if (!(dataProjectsNames.isEmpty()))
-			dataProjectsNames.clear();
-	}
-	
-	private void setMaleNames(Connection connection) {
-		
+	private void fillMaleNames(Connection connection) {		
 		NamesMaleDAO nmDAO = new NamesMaleDAO(connection);
 		nmDAO.fillTable();
-		dataMaleNames.addAll(nmDAO.getAllData());
-		
 	}
 	
-	private void setFemaleNames(Connection connection) {
-			
-			NamesFemaleDAO nfDAO = new NamesFemaleDAO(connection);
-			nfDAO.fillTable();
-			dataFemaleNames.addAll(nfDAO.getAllData());
-		
+	private ArrayList<String> getMaleNames(Connection connection) {
+		ArrayList<String> NamesMale = new ArrayList<String>();
+		NamesMaleDAO nmDAO = new NamesMaleDAO(connection);
+		NamesMale.addAll(nmDAO.getAllData());
+		return NamesMale;
+	}
+	
+	private void fillFemaleNames(Connection connection) {			
+		NamesFemaleDAO nfDAO = new NamesFemaleDAO(connection);
+		nfDAO.fillTable();
+	}
+	
+	private ArrayList<String> getFemaleNames(Connection connection) {
+		ArrayList<String> NamesFemale = new ArrayList<String>();
+		NamesFemaleDAO nfDAO = new NamesFemaleDAO(connection);
+		NamesFemale.addAll(nfDAO.getAllData());
+		return NamesFemale;
 	}
 
-	private void setMaleSurnames(Connection connection) {
-		
+	private void fillMaleSurnames(Connection connection) {		
 		SurnamesMaleDAO smDAO = new SurnamesMaleDAO(connection);
-		smDAO.fillTable();
-		dataMaleSurnames.addAll(smDAO.getAllData());
-	
+		smDAO.fillTable();	
 	}
 	
-	private void setFemaleSurnames(Connection connection) {
-		
+	private ArrayList<String> getMaleSurnames(Connection connection) {
+		ArrayList<String> MaleSurnames = new ArrayList<String>();
+		SurnamesMaleDAO smDAO = new SurnamesMaleDAO(connection);
+		MaleSurnames.addAll(smDAO.getAllData());
+		return MaleSurnames;
+	}
+	
+	private void fillFemaleSurnames(Connection connection) {		
 		SurnamesFemaleDAO sfDAO = new SurnamesFemaleDAO(connection);
 		sfDAO.fillTable();
-		dataFemaleSurnames.addAll(sfDAO.getAllData());
-	
 	}
 	
-	private void setSchoolsNames(Connection connection) {
-		
+	private ArrayList<String> getFemaleSurnames(Connection connection) {
+		ArrayList<String> FemaleSurnames = new ArrayList<String>();
+		SurnamesFemaleDAO sfDAO = new SurnamesFemaleDAO(connection);
+		FemaleSurnames.addAll(sfDAO.getAllData());
+		return FemaleSurnames;
+	}
+	
+	private void fillSchoolsNames(Connection connection) {		
 		SchoolsNamesDAO snDAO = new SchoolsNamesDAO(connection);
-		snDAO.fillTable();
-		dataSchoolsNames.addAll(snDAO.getAllData());
-		
+		snDAO.fillTable();	
 	}
 	
-	private void setUniversitiesNames(Connection connection) {
-		
+	private ArrayList<String> getSchoolsNames(Connection connection) {
+		ArrayList<String> SchoolsNames = new ArrayList<String>();
+		SchoolsNamesDAO snDAO = new SchoolsNamesDAO(connection);
+		SchoolsNames.addAll(snDAO.getAllData());
+		return SchoolsNames;
+	}
+	
+	private void fillUniversitiesNames(Connection connection) {		
 		UniversitiesNamesDAO unDAO = new UniversitiesNamesDAO(connection);
-		unDAO.fillTable();
-		dataUniversitiesNames.addAll(unDAO.getAllData());
-		
+		unDAO.fillTable();	
 	}
 	
-	private void setCompaniesNames(Connection connection) {
-		
+	private ArrayList<String> getUniversitiesNames(Connection connection) {
+		ArrayList<String> UniversitiesNames = new ArrayList<String>();
+		UniversitiesNamesDAO unDAO = new UniversitiesNamesDAO(connection);
+		UniversitiesNames.addAll(unDAO.getAllData());
+		return UniversitiesNames;
+	}
+	
+	private void fillCompaniesNames(Connection connection) {		
 		CompaniesNamesDAO cnDAO = new CompaniesNamesDAO(connection);
-		cnDAO.fillTable();
-		dataCompaniesNames.addAll(cnDAO.getAllData());
-		
+		cnDAO.fillTable();	
 	}
 	
-	private void setSpecialitiesNames(Connection connection) {
-		
+	private ArrayList<String> getCompaniesNames(Connection connection) {
+		ArrayList<String> CompaniesNames = new ArrayList<String>();
+		CompaniesNamesDAO cnDAO = new CompaniesNamesDAO(connection);
+		CompaniesNames.addAll(cnDAO.getAllData());
+		return CompaniesNames;
+	}
+	
+	private void fillSpecialitiesNames(Connection connection) {		
 		SpecialitiesNamesDAO snDAO = new SpecialitiesNamesDAO(connection);
-		snDAO.fillTable();
-		dataSpecialitiesNames.addAll(snDAO.getAllData());
-		
+		snDAO.fillTable();	
 	}
 	
-	private void setProjectsNames(Connection connection) {
-		
+	private ArrayList<String> getSpecialitiesNames(Connection connection) {
+		ArrayList<String> SpecialitiesNames = new ArrayList<String>();
+		SpecialitiesNamesDAO snDAO = new SpecialitiesNamesDAO(connection);
+		SpecialitiesNames.addAll(snDAO.getAllData());
+		return SpecialitiesNames;
+	}
+	
+	private void fillProjectsNames(Connection connection) {		
 		ProjectsNamesDAO pnDAO = new ProjectsNamesDAO(connection);
-		pnDAO.fillTable();
-		dataProjectsNames.addAll(pnDAO.getAllData());
-		
+		pnDAO.fillTable();	
 	}
 	
-	public ArrayList<String> getDataMaleNames() {
-		return dataMaleNames;
-	}
-
-	public ArrayList<String> getDataFemaleNames() {
-		return dataFemaleNames;
-	}
-
-	public ArrayList<String> getDataMaleSurnames() {
-		return dataMaleSurnames;
-	}
-
-	public ArrayList<String> getDataFemaleSurnames() {
-		return dataFemaleSurnames;
-	}
-
-	public ArrayList<String> getDataSchoolsNames() {
-		return dataSchoolsNames;
-	}
-		
-	public ArrayList<String> getDataUniversitiesNames() {
-		return dataUniversitiesNames;
-	}
-
-	public ArrayList<String> getDataCompaniesNames() {
-		return dataCompaniesNames;
-	}
-
-	public ArrayList<String> getDataSpecialitiesNames() {
-		return dataSpecialitiesNames;
-	}
-
-	public ArrayList<String> getDataProjectsNames() {
-		return dataProjectsNames;
+	private ArrayList<String> getProjectsNames(Connection connection) {
+		ArrayList<String> ProjectsNames = new ArrayList<String>();
+		ProjectsNamesDAO pnDAO = new ProjectsNamesDAO(connection);
+		ProjectsNames.addAll(pnDAO.getAllData());
+		return ProjectsNames;
 	}
 
 	public void printData() {
-		
-		rootLogger.info("\nAll data from DB 'initial_data'\n");
-		
-		rootLogger.info("Names male:");
-		for (String str : dataMaleNames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Names female");
-		for (String str : dataFemaleNames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Surnames male");
-		for (String str : dataMaleSurnames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Surnames female");
-		for (String str : dataFemaleSurnames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Schools names");
-		for (String str : dataSchoolsNames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Universities names");
-		for (String str : dataUniversitiesNames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Companies names");
-		for (String str : dataCompaniesNames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Specialities names");
-		for (String str : dataSpecialitiesNames)
-			rootLogger.info(str + " ");
-		
-		rootLogger.info("Projects names");
-		for (String str : dataProjectsNames)
-			rootLogger.info(str + " ");
-		
+		Connection connection = null;
+		try {
+			connection = DataSource.getInstance("initial_data").getConnection();
+			LOGGER.info("\nAll data from DB 'initial_data'\n");		
+			LOGGER.info("Names male:");
+			for (String str : getMaleNames(connection))
+				LOGGER.info(str + " ");		
+			LOGGER.info("Names female");
+			for (String str : getFemaleNames(connection))
+				LOGGER.info(str + " ");	
+			LOGGER.info("Surnames male");
+			for (String str : getMaleSurnames(connection))
+				LOGGER.info(str + " ");		
+			LOGGER.info("Surnames female");
+			for (String str : getFemaleSurnames(connection))
+				LOGGER.info(str + " ");	
+			LOGGER.info("Schools names");
+			for (String str : getSchoolsNames(connection))
+				LOGGER.info(str + " ");	
+			LOGGER.info("Universities names");
+			for (String str : getUniversitiesNames(connection))
+				LOGGER.info(str + " ");		
+			LOGGER.info("Companies names");
+			for (String str : getCompaniesNames(connection))
+				LOGGER.info(str + " ");		
+			LOGGER.info("Specialities names");
+			for (String str : getSpecialitiesNames(connection))
+				LOGGER.info(str + " ");		
+			LOGGER.info("Projects names");
+			for (String str : getProjectsNames(connection))
+				LOGGER.info(str + " ");	
+		} catch (SQLException e) {
+			LOGGER.error("SQLException in DataService.printData(): ", e);
+		} finally {
+			if (connection != null) 
+				try { 
+					connection.close();
+				} catch (SQLException e) {
+					LOGGER.error("SQLException in DataService.printData(): ", e);
+				}
+		}	
 	}
 	
 }

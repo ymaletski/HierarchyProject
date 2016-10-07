@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.StudentMapper">
+<mapper namespace="com.roxoft.hierarchy.dao.mybatis.mappers.StudentMapper">
 
   <resultMap id="stRM1" type="Student">
         <result property="name" column="name"/>
@@ -9,7 +9,7 @@
           property="speciality"
           column="speciality_id"
           javaType="String"
-          select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialityById"
+          select="com.roxoft.hierarchy.dao.mybatis.mappers.SpecialityMapper.getSpecialityById"
           fetchType="eager"
         />
   </resultMap>
@@ -21,14 +21,14 @@
       property="speciality"
       column="speciality_id"
       javaType="String"
-      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialityById"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.SpecialityMapper.getSpecialityById"
       fetchType="eager"
     />
     <association
       property="university"
       column="university_id"
       javaType="University"
-      select="com.roxoft.hierarchy.mybatis.mappers.UniversityMapper.getPureUniversityById"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.UniversityMapper.getPureUniversityById"
       fetchType="eager"
     />
   </resultMap>

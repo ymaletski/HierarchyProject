@@ -1,4 +1,4 @@
-package com.roxoft.hierarchy.mybatis.mappers;
+package com.roxoft.hierarchy.dao.mybatis.mappers;
 
 import java.util.ArrayList;
 

@@ -10,6 +10,9 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.roxoft.hierarchy.models.address.Address;
 import com.roxoft.hierarchy.models.human.Lecturer;
 import com.roxoft.hierarchy.models.human.Pupil;
@@ -33,7 +36,7 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 	private ArrayList<Company> companies = new ArrayList<Company>();
 	private ArrayList<Project> projects = new ArrayList<Project>();
 	
-	Address address = new Address();
+	private Address address = new Address();
 	
 	private School school;
 	private Pupil pupil;
@@ -69,18 +72,16 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 	private boolean inCompanyName;
 	private boolean inProjectSpeciality;
 	
+	private static final Logger LOGGER = LogManager.getLogger(InstituteHandlerStAX.class);
+	
 	public void fillInstituteSystem(){
-		
 		XMLInputFactory  inputFactory;
 		FileInputStream inputStream = null;
 		XMLStreamReader streamReader = null; 
-		
 		inputFactory = XMLInputFactory.newInstance();
-		
 		try {
 			inputStream = new FileInputStream("src\\main\\resources\\DataFile.xml");
 			streamReader = inputFactory.createXMLStreamReader(inputStream);
-			
 			int event;
 			while (streamReader.hasNext()) {
 				event = streamReader.next();
@@ -96,85 +97,70 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 				}
 			}	
 		} catch (FileNotFoundException e) {
-			System.out.println("File DataFile.xml not found "+e);
+			LOGGER.error("FileNotFoundException in InstituteHandlerStAX.fillInstituteSystem(): ",e);
 		} catch (XMLStreamException e) {
-			System.out.println("StAX parsing error "+e.getMessage());
+			LOGGER.error("XMLStreamException in InstituteHandlerStAX.fillInstituteSystem(): ",e);
 		}  finally {
 			try {
 				if (inputStream != null){
 					inputStream.close();
 				} 
 			} catch (IOException e) {
-				System.out.println("Impossible close file DataFile.xml "+e);
+				LOGGER.error("IOException in InstituteHandlerStAX.fillInstituteSystem(): ",e);
 			}
-			
 		}
-		
 	}
 	
 	private void processElement (XMLStreamReader element) throws XMLStreamException{
-		
 		switch (element.getLocalName()){
-		
 			case "schools":
 				inSchools = true;
 				break;
-				
 				case "school":
 					school = new School();
 					pupilsOfTheSameSchool = new ArrayList<Pupil>();
 					teachersOfTheSameSchool = new ArrayList<Teacher>();
-					break;
-										
+					break;					
 					case "pupil":
 						pupil = new Pupil();
 						pupil.setName(element.getAttributeValue(0));
 						pupil.setSurname(element.getAttributeValue(1));
 						pupil.setSchool(school);
-						break;
-						
+						break;	
 					case "teacher":
 						teacher = new Teacher();
 						teacher.setName(element.getAttributeValue(0));
 						teacher.setSurname(element.getAttributeValue(1));
 						teacher.setSchool(school);
 						break;
-				
 			case "universities":
 				inUniversities = true;
 				break;
-				
-				case "university":{
+				case "university":
 					university = new University();
 					studentsOfTheSameUniversity = new ArrayList<Student>();
 					lecturersOfTheSameUniversity = new ArrayList<Lecturer>();
 					universitySpecialities = new ArrayList<String>();
 					break;
-				}
-					
 					case "student":
 						student = new Student();
 						student.setName(element.getAttributeValue(0));
 						student.setSurname(element.getAttributeValue(1));
 						student.setSpeciality(element.getAttributeValue(2));
 						student.setUniversity(university);
-						break;
-						
+						break;	
 					case "lecturer":
 						lecturer = new Lecturer();
 						lecturer.setName(element.getAttributeValue(0));
 						lecturer.setSurname(element.getAttributeValue(1));
 						lecturer.setUniversity(university);
 						break;				
-				
 			case "companies":
 				inCompanies = true;
-				break;
-							
+				break;			
 				case "company": 
 					company = new Company();
 					break;
-					
 					case "projects": 
 						projectsOfTheSameCompany = new ArrayList<Project>(); 
 						break;
@@ -184,7 +170,6 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 							project.setName(element.getAttributeValue(0));
 							projectSpecialities = new ArrayList<String>();
 							break;
-			
 			case "name":
 				if (inSchools){
 					inSchoolName = true;
@@ -193,16 +178,14 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 				} else if (inCompanies){
 					inCompanyName = true;
 				}
-				break;
-						
+				break;			
 			case "speciality":
 				if (inUniversities){
 					inUniversitySpeciality = true;
 				} else if (inCompanies){
 					inProjectSpeciality = true;
 				}
-				break;
-					
+				break;	
 			case "address":
 				address = new Address();
 				break;
@@ -210,24 +193,19 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 				case "street":
 					inStreet = true;
 					break;
-				
 				case "house":
 					inHouse = true;
-					break;
-					
+					break;	
 				case "city":
 					inCity = true;
-					break;
-					
+					break;	
 				case "postcode":
 					inPostcode = true;
 					break;
 		}
-		
 	}
-	
+
 	private void processText (String text){
-		
 		if (inSchoolName){
 			school.setName(text);
 			inSchoolName = false;
@@ -254,25 +232,20 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 		} else if (inProjectSpeciality){
 			projectSpecialities.add(text);
 		}
-		
 	}
 	
 	private void finishElement(String name){
-		
 		switch (name){
-		
 			case "pupil":
 				pupils.add(pupil);
 				pupilsOfTheSameSchool.add(pupil);
 				pupil = null;
-				break;
-				
+				break;	
 			case "teacher":
 				teachers.add(teacher);
 				teachersOfTheSameSchool.add(teacher);
 				teacher = null;
-				break;
-				
+				break;	
 			case "address":
 				if (inSchools){
 				school.setAddress(address);
@@ -285,7 +258,6 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 					address = null;
 				}
 				break;
-				
 			case "school":
 				school.setPupils(pupilsOfTheSameSchool);
 				school.setTeachers(teachersOfTheSameSchool);
@@ -294,23 +266,19 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 				schools.add(school);
 				school = null;
 				break;
-				
 			case "schools":
 				inSchools = false;
 				break;
-			
 			case "student":
 				students.add(student);
 				studentsOfTheSameUniversity.add(student);
 				student = null;
-				break;
-				
+				break;	
 			case "lecturer":
 				lecturers.add(lecturer);
 				lecturersOfTheSameUniversity.add(lecturer);
 				lecturer = null;
 				break;
-				
 			case "speciality":
 				if (inUniversities){
 					university.setSpecialities(universitySpecialities);
@@ -320,7 +288,6 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 					inProjectSpeciality = false;	
 				}	
 				break;
-				
 			case "university":
 				university.setStudents(studentsOfTheSameUniversity);
 				university.setLecturers(lecturersOfTheSameUniversity);
@@ -329,34 +296,28 @@ public class InstituteHandlerStAX implements XMLStreamConstants {
 				universitySpecialities = null;
 				universities.add(university);
 				university = null;
-				break;
-				
+				break;	
 			case "universities":
 				inUniversities = false;
-				break;
-				
+				break;	
 			case "project":
 				project.setCompany(company);
 				projectsOfTheSameCompany.add(project);
 				projects.add(project);
 				projectSpecialities = null;
-				break;
-				
+				break;	
 			case "projects":
 				company.setProjects(projectsOfTheSameCompany);
 				projectsOfTheSameCompany = null;
-				break;
-				
+				break;	
 			case "company":
 				companies.add(company);
 				company = null;
-				break;
-				
+				break;	
 			case "companies":
 				inCompanies = false;
 				break;	
 		}	
-		
 	}
 	
 	public ArrayList<Pupil> getPupils() {

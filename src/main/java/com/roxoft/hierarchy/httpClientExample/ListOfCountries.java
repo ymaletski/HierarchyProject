@@ -20,13 +20,11 @@ public class ListOfCountries {
 	}
 	
 	public void print(){
-		
 		for (Country country : countries){
 			System.out.println("Country : "+ country.getName());
 			System.out.println("Alpha3 : "+ country.getAlpha3_code());
 			System.out.println("Alpha2 : "+ country.getAlpha2_code());
-		}
-		
+		}	
 	}
 
 }

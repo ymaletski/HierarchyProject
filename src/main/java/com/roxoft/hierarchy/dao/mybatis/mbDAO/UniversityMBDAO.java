@@ -1,4 +1,4 @@
-package com.roxoft.hierarchy.mybatis.mbDAO;
+package com.roxoft.hierarchy.dao.mybatis.mbDAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,33 +11,28 @@ import com.roxoft.hierarchy.models.institutions.University;
 
 public class UniversityMBDAO {
 	
-	protected static final String NAMESPACE = "com.roxoft.hierarchy.mybatis.mappers.UniversityMapper";
+	protected static final String NAMESPACE = "com.roxoft.hierarchy.dao.mybatis.mappers.UniversityMapper";
 	protected SqlSessionFactory sqlSessionFactory;
 
 	public UniversityMBDAO(final SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 	
-	public ArrayList<University> getAllData() {
-		
+	public ArrayList<University> getAllData() {	
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<University> universities = new ArrayList<University>();
-		
+		ArrayList<University> universities = new ArrayList<University>();		
 		try {
 			final String query = NAMESPACE + ".getAllData";
 			universities.addAll(session.selectList(query));
 			return universities;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public University getUniversityById(int universityId){
-		
+	public University getUniversityById(int universityId){		
 		final SqlSession session = sqlSessionFactory.openSession();
-		University university = new University();
-		
+		University university = new University();		
 		try {
 			final String query = NAMESPACE + ".getUniversityById";
 			Map<String, Object> args = new HashMap<String, Object>();
@@ -46,15 +41,12 @@ public class UniversityMBDAO {
 			return university;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public University getPureUniversityById(int universityId){
-		
+	public University getPureUniversityById(int universityId){		
 		final SqlSession session = sqlSessionFactory.openSession();
-		University university = new University();
-		
+		University university = new University();		
 		try {
 			final String query = NAMESPACE + ".getPureUniversityById";
 			Map<String, Object> args = new HashMap<String, Object>();
@@ -63,8 +55,7 @@ public class UniversityMBDAO {
 			return university;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 
 }

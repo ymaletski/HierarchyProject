@@ -19,12 +19,10 @@ private ArrayList<String> messages = new ArrayList<String>();
 		return country;
 	}
 	
-	public void print(){
-			
+	public void print(){	
 			System.out.println("Country : "+ country.getName());
 			System.out.println("Alpha3 : "+ country.getAlpha3_code());
 			System.out.println("Alpha2 : "+ country.getAlpha2_code());
-				
 	}
 	
 }

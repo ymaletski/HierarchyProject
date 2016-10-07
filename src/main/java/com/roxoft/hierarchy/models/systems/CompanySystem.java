@@ -17,31 +17,23 @@ public class CompanySystem {
 	private ArrayList<Project> projects = new ArrayList<Project>();
 
 	public void fillCompanySystem(int numberOfCompanies, int numberOfProjects){
-		
-		if (!((companies.isEmpty())&(projects.isEmpty())))
-			clearAllData();
-		
+		clearAllData();
 		fillCompaniesNames(numberOfCompanies);
 		fillCompaniesAddresses();
 		fillProjectsNames(numberOfProjects);
-				
 		fillProjectsSpecialities();
 		fillCompaniesWithProjects();	
-		
 	}	
 	
 	private void fillCompaniesNames(int numberOfCompanies){
-		
 		Companies dataCompaniesNames = new Companies();
 		ArrayList<String> companiesNames = new ArrayList<String>(Arrays.asList(
 				dataCompaniesNames.getCompanies()));
-		
 		for (String str : companiesNames){
 			Company company = new Company();
 			company.setName(str);				
 			companies.add(company);
-		}
-				
+		}			
 	}
 	
 	private void fillCompaniesAddresses(){
@@ -77,31 +69,24 @@ public class CompanySystem {
 	}
 	
 	private void fillProjectsNames(int numberOfProjects){
-		
 		Projects dataProjectsNames = new Projects();
 		ArrayList<String> projectsNames = new ArrayList<String>(Arrays.asList(
 				dataProjectsNames.getProjects()));
-		
 		for (String str : projectsNames){
 			Project project = new Project();
 			project.setName(str);				
 			projects.add(project);
-		}
-				
+		}		
 	}
 	
 	private void fillProjectsSpecialities(){
-		
 		RandomSpecialitiesFiller rsf = new RandomSpecialitiesFiller();		
-		Random rand = new Random();
-								
+		Random rand = new Random();						
 		for (Project project : projects)
-			project.setSpecialities(rsf.getSpecialities(rand.nextInt(3)+2));
-		
+			project.setSpecialities(rsf.getSpecialities(rand.nextInt(3)+2));	
 	}
 	
 	private void fillCompaniesWithProjects(){
-		
 		Random rand = new Random();
 		int random = 0, size = companies.size();
 				
@@ -109,7 +94,6 @@ public class CompanySystem {
 			random = rand.nextInt(size);
 			project.setCompany(companies.get(random));
 		}
-		
 		for (Company company : companies){
 			ArrayList<Project> projectsOfTheSameCompany = new ArrayList<Project>();
 			for (Project project : projects){
@@ -118,14 +102,13 @@ public class CompanySystem {
 			}
 			company.setProjects(projectsOfTheSameCompany);
 		}
-		
 	}
 	
 	private void clearAllData(){
-		
-		companies.clear();
-		projects.clear();
-					
+		if (!(companies.isEmpty()))
+			companies.clear();
+		if (!(projects.isEmpty()))
+			projects.clear();		
 	}
 
 	public ArrayList<Company> getCompanies() {

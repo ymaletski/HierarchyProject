@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.TeacherMapper">
+<mapper namespace="com.roxoft.hierarchy.dao.mybatis.mappers.TeacherMapper">
 
   <resultMap id="teachRM1" type="Teacher">
         <result property="name" column="name"/>
@@ -14,7 +14,7 @@
       property="school"
       column="school_id"
       javaType="School"
-      select="com.roxoft.hierarchy.mybatis.mappers.SchoolMapper.getPureSchoolById"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.SchoolMapper.getPureSchoolById"
       fetchType="eager"
     />
   </resultMap>

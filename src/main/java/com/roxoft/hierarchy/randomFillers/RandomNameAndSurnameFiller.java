@@ -12,14 +12,11 @@ import com.roxoft.hierarchy.data.SurnamesMale;
 public class RandomNameAndSurnameFiller {
 
 	public ArrayList<String[]> getNamesAndSurnames (int number){
-		
 		ArrayList<String[]> namesAndSurnames = new ArrayList<String[]>();
-		
 		NamesMale dataNamesMale = new NamesMale();
 		NamesFemale dataNamesFemale = new NamesFemale();
 		SurnamesMale dataSurnamesMale = new SurnamesMale();
 		SurnamesFemale dataSurnamesFemale = new SurnamesFemale();
-		
 		ArrayList<String> nm = new ArrayList<String>(Arrays.asList(
 				dataNamesMale.getNames()));
 		ArrayList<String> nf = new ArrayList<String>(Arrays.asList(
@@ -28,9 +25,7 @@ public class RandomNameAndSurnameFiller {
 				dataSurnamesMale.getSurnames()));
 		ArrayList<String> sf = new ArrayList<String>(Arrays.asList(
 				dataSurnamesFemale.getSurnames()));
-		
-		Random rand = new Random();
-				
+		Random rand = new Random();	
 		for (int i=0; i<number; i++){
 			String[] str = new String[2];
 			switch (rand.nextInt(2)){
@@ -48,9 +43,7 @@ public class RandomNameAndSurnameFiller {
 				}
 			}
 		}
-		
 		return namesAndSurnames;
-		
 	}
 	
 }

@@ -19,63 +19,48 @@ public class SchoolSystem {
 	
 	public void fillSchoolSystem(int numberOfSchools, 
 			int numberOfTeachers, int numberOfPupils){
-		
-		if (!((pupils.isEmpty())&(teachers.isEmpty())&(schools.isEmpty())))
-			clearAllData();
-		
+		clearAllData();
 		fillPupilsNames(numberOfPupils);
 		fillTeachersNames(numberOfTeachers);
 		fillSchoolsNames(numberOfSchools);
-		
 		fillSchoolsAddresses();
-		
 		fillSchoolsWithPupils();
-		fillSchoolsWithTeachers();		
-		
+		fillSchoolsWithTeachers();			
 	}
 	
 	private void fillPupilsNames(int numberOfPupils) {
-		
 		RandomNameAndSurnameFiller rnsf = new RandomNameAndSurnameFiller();
 		ArrayList<String[]> pupilsNamesAndSurnames = new ArrayList<String[]>();
 		pupilsNamesAndSurnames.addAll(rnsf.getNamesAndSurnames(numberOfPupils));
-		
 		for (String[] str : pupilsNamesAndSurnames){
 			Pupil pupil = new Pupil();
 			pupil.setName(str[0]);
 			pupil.setSurname(str[1]);
 			pupils.add(pupil);
 		}
-		
 	}
 	
 	private void fillTeachersNames(int numberOfTeachers) {
-		
 		RandomNameAndSurnameFiller rnsf = new RandomNameAndSurnameFiller();
 		ArrayList<String[]> teachersNamesAndSurnames = new ArrayList<String[]>();
 		teachersNamesAndSurnames.addAll(rnsf.getNamesAndSurnames(numberOfTeachers));
-		
 		for (String[] str : teachersNamesAndSurnames){
 			Teacher teacher = new Teacher();
 			teacher.setName(str[0]);
 			teacher.setSurname(str[1]);
 			teachers.add(teacher);
 		}
-		
 	}
 	
 	private void fillSchoolsNames(int numberOfSchools){
-		
 		RandomSchoolFiller rsf = new RandomSchoolFiller();
 		ArrayList<String> schoolsNames = new ArrayList<String>();
 		schoolsNames.addAll(rsf.getNames(numberOfSchools));
-		
 		for (String str : schoolsNames){
 			School school = new School();
 			school.setName(str);
 			schools.add(school);
-		}
-				
+		}		
 	}
 	
 	private void fillSchoolsAddresses(){
@@ -127,15 +112,12 @@ public class SchoolSystem {
 	}
 	
 	private void fillSchoolsWithPupils(){
-		
 		Random rand = new Random();
-		int random = 0, size = schools.size();
-				
+		int random = 0, size = schools.size();		
 		for (Pupil pupil : pupils){
 			random = rand.nextInt(size);
 			pupil.setSchool(schools.get(random));
-		}
-				
+		}		
 		for (School school : schools){
 			ArrayList<Pupil> pupilsOfTheSameSchool = new ArrayList<Pupil>();
 			for (Pupil pupil : pupils){
@@ -144,19 +126,15 @@ public class SchoolSystem {
 			}
 			school.setPupils(pupilsOfTheSameSchool);
 		}
-		
 	}
 	
 	private void fillSchoolsWithTeachers(){
-		
 		Random rand = new Random();
-		int random = 0, size = schools.size();
-				
+		int random = 0, size = schools.size();		
 		for (Teacher teacher : teachers){
 			random = rand.nextInt(size);
 			teacher.setSchool(schools.get(random));
 		}
-		
 		for (School school : schools){
 			ArrayList<Teacher> teachersOfTheSameSchool = new ArrayList<Teacher>();
 			for (Teacher teacher : teachers){
@@ -165,15 +143,15 @@ public class SchoolSystem {
 			}
 			school.setTeachers(teachersOfTheSameSchool);
 		}
-		
 	}
 	
 	private void clearAllData(){
-		
-		pupils.clear();
-		teachers.clear();
-		schools.clear();
-			
+		if (!(pupils.isEmpty()))
+			pupils.clear();
+		if (!(teachers.isEmpty()))
+			teachers.clear();
+		if (!(schools.isEmpty()))
+			schools.clear();
 	}
 
 	public ArrayList<Pupil> getPupils() {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.UniversityMapper">
+<mapper namespace="com.roxoft.hierarchy.dao.mybatis.mappers.UniversityMapper">
 
   <resultMap id="unRM1" type="University">
     <result property="name" column="name"/>
@@ -8,7 +8,7 @@
       property="address"
       column="address_id"
       javaType="Address"
-      select="com.roxoft.hierarchy.mybatis.mappers.AddressMapper.getAddressById"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.AddressMapper.getAddressById"
       fetchType="eager"
     />
     <collection
@@ -16,7 +16,7 @@
       column="university_id"
       javaType="List"
       ofType="Student"
-      select="com.roxoft.hierarchy.mybatis.mappers.StudentMapper.getStudentsByUniversityId"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.StudentMapper.getStudentsByUniversityId"
       fetchType="eager"
     />
     <collection
@@ -24,7 +24,7 @@
       column="university_id"
       javaType="List"
       ofType="Lecturer"
-      select="com.roxoft.hierarchy.mybatis.mappers.LecturerMapper.getLecturersByUniversityId"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.LecturerMapper.getLecturersByUniversityId"
       fetchType="eager"
     />
     <collection
@@ -32,7 +32,7 @@
       column="university_id"
       javaType="List"
       ofType="String"
-      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByUniversityId"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.SpecialityMapper.getSpecialitiesByUniversityId"
       fetchType="eager"
     />
   </resultMap>
@@ -43,7 +43,7 @@
       property="address"
       column="address_id"
       javaType="Address"
-      select="com.roxoft.hierarchy.mybatis.mappers.AddressMapper.getAddressById"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.AddressMapper.getAddressById"
       fetchType="eager"
     />
     <collection
@@ -51,7 +51,7 @@
       column="university_id"
       javaType="List"
       ofType="String"
-      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByUniversityId"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.SpecialityMapper.getSpecialitiesByUniversityId"
       fetchType="eager"
     />
   </resultMap>

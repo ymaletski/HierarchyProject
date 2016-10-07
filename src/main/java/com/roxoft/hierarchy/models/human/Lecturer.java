@@ -17,6 +17,7 @@ public class Lecturer extends Human {
 	public University getUniversity() {
 		return university;
 	}
+	
 	public void setUniversity(University university) {
 		this.university = university;
 	}

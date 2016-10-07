@@ -12,14 +12,10 @@ import com.roxoft.hierarchy.data.Schools;
 public class RandomSchoolFiller {
 
 	public Set<String> getNames (int number){
-		
 		Set<String> names = new TreeSet<String>();
-		
 		Schools dataSchoolsNames = new Schools();
-		
 		Set<String> sn = new HashSet<String>(Arrays.asList
-				(dataSchoolsNames.getSchools()));
-										
+				(dataSchoolsNames.getSchools()));								
 		if(number <= sn.size()){
 			Random rand = new Random();
 			ArrayList<String> ar = new ArrayList<String>();
@@ -29,8 +25,7 @@ public class RandomSchoolFiller {
 		}
 		else
 			names.addAll(sn);
-		
 		return names;
-		
 	}
+	
 }

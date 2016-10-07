@@ -1,4 +1,4 @@
-package com.roxoft.hierarchy.mybatis.mbDAO;
+package com.roxoft.hierarchy.dao.mybatis.mbDAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import com.roxoft.hierarchy.models.human.Lecturer;
 
 public class LecturerMBDAO {
 	
-	protected static final String NAMESPACE = "com.roxoft.hierarchy.mybatis.mappers.LecturerMapper";
+	protected static final String NAMESPACE = "com.roxoft.hierarchy.dao.mybatis.mappers.LecturerMapper";
 	protected SqlSessionFactory sqlSessionFactory;
 
 	public LecturerMBDAO(final SqlSessionFactory sqlSessionFactory)
@@ -19,11 +19,9 @@ public class LecturerMBDAO {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 	
-	public ArrayList<Lecturer> getAllData() {
-		
+	public ArrayList<Lecturer> getAllData() {		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-		
+		ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();		
 		try
 		{
 			final String query = NAMESPACE + ".getAllData";
@@ -31,15 +29,12 @@ public class LecturerMBDAO {
 			return lecturers;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public ArrayList<Lecturer> getLecturersByUniversityId(int universityId){
-		
+	public ArrayList<Lecturer> getLecturersByUniversityId(int universityId){		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-		
+		ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();	
 		try
 		{
 			final String query = NAMESPACE + ".getLecturersByUniversityId";
@@ -49,15 +44,12 @@ public class LecturerMBDAO {
 			return lecturers;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public ArrayList<Lecturer> getAllDataWithUniversitiesNames() {
-		
+	public ArrayList<Lecturer> getAllDataWithUniversitiesNames() {		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-		
+		ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();		
 		try
 		{
 			final String query = NAMESPACE + ".getAllDataWithUniversitiesNames";
@@ -65,8 +57,7 @@ public class LecturerMBDAO {
 			return lecturers;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 
 }

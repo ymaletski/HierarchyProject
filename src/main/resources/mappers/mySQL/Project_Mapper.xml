@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.roxoft.hierarchy.mybatis.mappers.ProjectMapper">
+<mapper namespace="com.roxoft.hierarchy.dao.mybatis.mappers.ProjectMapper">
 
   <resultMap id="projRM1" type="Project">
     <result property="name" column="name"/>
@@ -9,7 +9,7 @@
       column="project_id"
       javaType="List"
       ofType="String"
-      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByProjectId"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.SpecialityMapper.getSpecialitiesByProjectId"
       fetchType="eager"
     />
   </resultMap>
@@ -20,7 +20,7 @@
       property="company"
       column="company_id"
       javaType="Company"
-      select="com.roxoft.hierarchy.mybatis.mappers.CompanyMapper.getPureCompanyById"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.CompanyMapper.getPureCompanyById"
       fetchType="eager"
     />
     <collection
@@ -28,7 +28,7 @@
       column="project_id"
       javaType="List"
       ofType="String"
-      select="com.roxoft.hierarchy.mybatis.mappers.SpecialityMapper.getSpecialitiesByProjectId"
+      select="com.roxoft.hierarchy.dao.mybatis.mappers.SpecialityMapper.getSpecialitiesByProjectId"
       fetchType="eager"
     />
   </resultMap>

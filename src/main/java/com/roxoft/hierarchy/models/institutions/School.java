@@ -28,12 +28,15 @@ public class School extends Institute {
 	public ArrayList<Pupil> getPupils() {
 		return pupils;
 	}
+	
 	public void setPupils(ArrayList<Pupil> pupils) {
 		this.pupils = pupils;
 	}
+	
 	public ArrayList<Teacher> getTeachers() {
 		return teachers;
 	}
+	
 	public void setTeachers(ArrayList<Teacher> teachers) {
 		this.teachers = teachers;
 	}

@@ -15,6 +15,7 @@ public class PostObject {
 	private String paymentProvider;
 	private String unit;
 	private String companyId;
+	
 	public int getId() {
 		return id;
 	}
@@ -56,7 +57,6 @@ public class PostObject {
 	}
 	
 	public void print(){
-		
 		System.out.println("id : "+ id);
 		System.out.println("modifiedAt : "+ modifiedAt);
 		System.out.println("createdAt : "+ createdAt);

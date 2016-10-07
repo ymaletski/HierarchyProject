@@ -19,65 +19,50 @@ public class UniversitySystem {
 	
 	public void fillUniversitySystem(int numberOfUniversities, 
 			int numberOfLecturers, int numberOfStudents){
-		
-		if (!((students.isEmpty())&(lecturers.isEmpty())&(universities.isEmpty())))
-			clearAllData();
-		
+		clearAllData();
 		fillStudentsNames(numberOfStudents);
 		fillLecturersNames(numberOfLecturers);
 		fillUniversitiesNames(numberOfUniversities);
-		
 		fillUniversitiesAddresses();
-		
 		fillUniversitiesSpecialities();
 		fillUniversitiesWithStudents();
 		fillStudentsSpecialities();
-		fillUniversitiesWithLecturers();
-			
+		fillUniversitiesWithLecturers();	
 	}	
 	
 	private void fillStudentsNames(int numberOfStudents) {
-		
 		RandomNameAndSurnameFiller rnsf = new RandomNameAndSurnameFiller();
 		ArrayList<String[]> studentsNamesAndSurnames = new ArrayList<String[]>();
 		studentsNamesAndSurnames.addAll(rnsf.getNamesAndSurnames(numberOfStudents));
-		
 		for (String[] str : studentsNamesAndSurnames){
 			Student student = new Student();
 			student.setName(str[0]);
 			student.setSurname(str[1]);
 			students.add(student);
 		}
-		
 	}
 	
 	private void fillLecturersNames(int numberOfLecturers) {
-		
 		RandomNameAndSurnameFiller rnsf = new RandomNameAndSurnameFiller();
 		ArrayList<String[]> lecturersNamesAndSurnames = new ArrayList<String[]>();
 		lecturersNamesAndSurnames.addAll(rnsf.getNamesAndSurnames(numberOfLecturers));
-		
 		for (String[] str : lecturersNamesAndSurnames){
 			Lecturer lecturer = new Lecturer();
 			lecturer.setName(str[0]);
 			lecturer.setSurname(str[1]);
 			lecturers.add(lecturer);
 		}
-		
 	}
 	
 	private void fillUniversitiesNames(int numberOfUniversities){
-		
 		Universities dataUniversitiesNames = new Universities();
 		ArrayList<String> universitiesNames = new ArrayList<String>(Arrays.asList(
 				dataUniversitiesNames.getUniversities()));
-		
 		for (String str : universitiesNames){
 			University university = new University();
 			university.setName(str);				
 			universities.add(university);
-		}
-				
+		}	
 	}
 	
 	private void fillUniversitiesAddresses(){
@@ -121,7 +106,6 @@ public class UniversitySystem {
 	}
 	
 	private void fillUniversitiesSpecialities(){
-		
 		for (University university : universities){
 			switch (university.getName()){
 				case "BNTU":{
@@ -147,11 +131,9 @@ public class UniversitySystem {
 				}
 			}
 		}
-		
 	}
 	
 	private void fillUniversitiesWithStudents(){
-		
 		Random rand = new Random();
 		int random = 0, size = universities.size();
 				
@@ -159,7 +141,6 @@ public class UniversitySystem {
 			random = rand.nextInt(size);
 			student.setUniversity(universities.get(random));
 		}
-		
 		for (University university : universities){
 			ArrayList<Student> studentsOfTheSameUniversity = new ArrayList<Student>();
 			for (Student student : students){
@@ -168,34 +149,27 @@ public class UniversitySystem {
 			}
 			university.setStudents(studentsOfTheSameUniversity);
 		}
-		
 	}
 	
 	private void fillStudentsSpecialities(){
-		
 		Random rand = new Random();
 		int random = 0, size = 0;
-		String speciality;
-				
+		String speciality;		
 		for (Student student : students){
 			size = student.getUniversity().getSpecialities().size();
 			random = rand.nextInt(size);
 			speciality = student.getUniversity().getSpecialities().get(random);
 			student.setSpeciality(speciality);
 		}
-		
 	}
 
 	private void fillUniversitiesWithLecturers(){
-		
 		Random rand = new Random();
-		int random = 0, size = universities.size();
-				
+		int random = 0, size = universities.size();		
 		for (Lecturer lecturer : lecturers){
 			random = rand.nextInt(size);
 			lecturer.setUniversity(universities.get(random));
 		}
-		
 		for (University university : universities){
 			ArrayList<Lecturer> lecturersOfTheSameUniversity = new ArrayList<Lecturer>();
 			for (Lecturer lecturer : lecturers){
@@ -204,15 +178,15 @@ public class UniversitySystem {
 			}
 			university.setLecturers(lecturersOfTheSameUniversity);
 		}
-		
 	}
 	
 	private void clearAllData(){
-		
-		students.clear();
-		lecturers.clear();
-		universities.clear();
-			
+		if (!(students.isEmpty()))
+			students.clear();
+		if (!(lecturers.isEmpty()))
+			lecturers.clear();
+		if (!(universities.isEmpty()))
+			universities.clear();
 	}
 
 	public ArrayList<University> getUniversities() {

@@ -9,34 +9,27 @@ import org.apache.logging.log4j.Logger;
 
 public abstract class GeneralDataDAO {
 	
-	private static final Logger rootLogger = LogManager.getRootLogger();
-	
+	private static final Logger LOGGER = LogManager.getLogger(GeneralDataDAO.class);
 	protected Connection connection;
 	
 	protected PreparedStatement getPreparedStatement(String sql) {
-		
 		PreparedStatement preparedStatement = null;
-		
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 		} catch (SQLException e) {
-			rootLogger.error("SQLException", e);
+			LOGGER.error("SQLException in GeneralDataDAO.PreparedStatement(): ", e);
 		}
-		
 		return preparedStatement;
-		
 	}
 
 	protected void closePreparedStatement(PreparedStatement preparedStatement) {
-		
 		try {	
 			if (preparedStatement != null){ 
 				preparedStatement.close();
 			}
 		} catch (SQLException e) {
-			rootLogger.error("SQLException", e);
-		}
-			
+			LOGGER.error("SQLException in GeneralDataDAO.closePreparedStatement(): ", e);
+		}	
 	}	
 
 }

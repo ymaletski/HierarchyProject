@@ -1,4 +1,4 @@
-package com.roxoft.hierarchy.mybatis.mbDAO;
+package com.roxoft.hierarchy.dao.mybatis.mbDAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import com.roxoft.hierarchy.models.human.Teacher;
 
 public class TeacherMBDAO {
 	
-	protected static final String NAMESPACE = "com.roxoft.hierarchy.mybatis.mappers.TeacherMapper";
+	protected static final String NAMESPACE = "com.roxoft.hierarchy.dao.mybatis.mappers.TeacherMapper";
 	protected SqlSessionFactory sqlSessionFactory;
 
 	public TeacherMBDAO(final SqlSessionFactory sqlSessionFactory)
@@ -19,11 +19,9 @@ public class TeacherMBDAO {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 	
-	public ArrayList<Teacher> getAllData() {
-		
+	public ArrayList<Teacher> getAllData() {		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Teacher> teachers = new ArrayList<Teacher>();
-		
+		ArrayList<Teacher> teachers = new ArrayList<Teacher>();		
 		try
 		{
 			final String query = NAMESPACE + ".getAllData";
@@ -31,15 +29,12 @@ public class TeacherMBDAO {
 			return teachers;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public ArrayList<Teacher> getPupilsBySchoolId(int schoolId){
-		
+	public ArrayList<Teacher> getPupilsBySchoolId(int schoolId){		
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Teacher> teachers = new ArrayList<Teacher>();
-		
+		ArrayList<Teacher> teachers = new ArrayList<Teacher>();		
 		try
 		{
 			final String query = NAMESPACE + ".getTeachersBySchoolId";
@@ -49,15 +44,12 @@ public class TeacherMBDAO {
 			return teachers;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public ArrayList<Teacher> getAllDataWithSchoolsNames() {
-		
+	public ArrayList<Teacher> getAllDataWithSchoolsNames() {	
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Teacher> teachers = new ArrayList<Teacher>();
-		
+		ArrayList<Teacher> teachers = new ArrayList<Teacher>();		
 		try
 		{
 			final String query = NAMESPACE + ".getAllDataWithSchoolsNames";
@@ -65,8 +57,7 @@ public class TeacherMBDAO {
 			return teachers;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 
 }

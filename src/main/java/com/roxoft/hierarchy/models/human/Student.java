@@ -21,12 +21,15 @@ public class Student extends Human {
 	public University getUniversity() {
 		return university;
 	}
+	
 	public void setUniversity(University university) {
 		this.university = university;
 	}
+	
 	public String getSpeciality() {
 		return speciality;
 	}
+	
 	public void setSpeciality(String speciality) {
 		this.speciality = speciality;
 	}

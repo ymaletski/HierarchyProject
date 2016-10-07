@@ -1,4 +1,4 @@
-package com.roxoft.hierarchy.mybatis.mbDAO;
+package com.roxoft.hierarchy.dao.mybatis.mbDAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,33 +11,28 @@ import com.roxoft.hierarchy.models.institutions.Company;
 
 public class CompanyMBDAO {
 
-	protected static final String NAMESPACE = "com.roxoft.hierarchy.mybatis.mappers.CompanyMapper";
+	protected static final String NAMESPACE = "com.roxoft.hierarchy.dao.mybatis.mappers.CompanyMapper";
 	protected SqlSessionFactory sqlSessionFactory;
 
 	public CompanyMBDAO(final SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 	
-	public ArrayList<Company> getAllData() {
-		
+	public ArrayList<Company> getAllData() {	
 		final SqlSession session = sqlSessionFactory.openSession();
-		ArrayList<Company> companies = new ArrayList<Company>();
-		
+		ArrayList<Company> companies = new ArrayList<Company>();		
 		try {
 			final String query = NAMESPACE + ".getAllData";
 			companies.addAll(session.selectList(query));
 			return companies;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public Company getCompanyById(int companyId){
-		
+	public Company getCompanyById(int companyId){		
 		final SqlSession session = sqlSessionFactory.openSession();
-		Company company = new Company();
-		
+		Company company = new Company();	
 		try {
 			final String query = NAMESPACE + ".getCompanyById";
 			Map<String, Object> args = new HashMap<String, Object>();
@@ -46,15 +41,12 @@ public class CompanyMBDAO {
 			return company;
 		} finally {
 			session.close();
-		}
-		
+		}		
 	}
 	
-	public Company getPureCompanyById(int companyId){
-		
+	public Company getPureCompanyById(int companyId){		
 		final SqlSession session = sqlSessionFactory.openSession();
-		Company company = new Company();
-		
+		Company company = new Company();	
 		try {
 			final String query = NAMESPACE + ".getPureCompanyById";
 			Map<String, Object> args = new HashMap<String, Object>();
@@ -63,8 +55,7 @@ public class CompanyMBDAO {
 			return company;
 		} finally {
 			session.close();
-		}
-		
+		}	
 	}
 	
 }

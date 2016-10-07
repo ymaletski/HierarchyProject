@@ -2,52 +2,41 @@
 <Configuration status="WARN">
 
   <Properties>
-
     <Property name="LOG_DIR">logs</Property>
     <Property name="ARCHIVE">${LOG_DIR}/archive</Property>
     <Property name="PATTERN">%-5level %d{ISO8601} [%t] %c:%M(%L): %m%n</Property>
-
   </Properties>
 
   <Appenders>
 
     <RollingFile name="SchoolSystemFile" fileName="${LOG_DIR}/SchoolSystem.log"
-      filePattern="${ARCHIVE}/SchoolSystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
+      filePattern="${ARCHIVE}/InitialSystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
       <PatternLayout pattern="${PATTERN}"/>
-
       <Policies>
         <!--<TimeBasedTriggeringPolicy />-->
-        <SizeBasedTriggeringPolicy size="250 KB"/>
+        <SizeBasedTriggeringPolicy size="750 KB"/>
       </Policies>
-
       <DefaultRolloverStrategy max="20"/>
-
     </RollingFile>
 
     <RollingFile name="UniversitySystemFile" fileName="${LOG_DIR}/UniversitySystem.log"
-      filePattern="${ARCHIVE}/UniversitySystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
+      filePattern="${ARCHIVE}/InitialSystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
       <PatternLayout pattern="${PATTERN}"/>
-
       <Policies>
         <!--<TimeBasedTriggeringPolicy />-->
-        <SizeBasedTriggeringPolicy size="250 KB"/>
+        <SizeBasedTriggeringPolicy size="750 KB"/>
       </Policies>
-
       <DefaultRolloverStrategy max="20"/>
-
     </RollingFile>
 
     <RollingFile name="CompanySystemFile" fileName="${LOG_DIR}/CompanySystem.log"
-      filePattern="${ARCHIVE}/CompanySystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
+      filePattern="${ARCHIVE}/InitialSystem.log.%d{yyyy-MM-dd-hh-mm}.zip">
       <PatternLayout pattern="${PATTERN}"/>
-
       <Policies>
         <!--<TimeBasedTriggeringPolicy />-->
-        <SizeBasedTriggeringPolicy size="250 KB"/>
+        <SizeBasedTriggeringPolicy size="750 KB"/>
       </Policies>
-
       <DefaultRolloverStrategy max="20"/>
-
     </RollingFile>
 
     <Console name="Console" target="SYSTEM_OUT">
@@ -58,7 +47,7 @@
 
   <Loggers>
 
-    <Root level="all">
+    <Root level="info">
       <AppenderRef ref="Console"/>
     </Root>
 
@@ -78,5 +67,4 @@
     </Logger>
 
   </Loggers>
-
 </Configuration>
